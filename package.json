@@ -6,14 +6,16 @@
   "homepage": "https://alexshlikhta.github.io/team-project-js",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /team-project-js/"
+    "build": "parcel build src/*.html --public-url /team-project-js/",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alexshlikhta/team-project-js.git"
   },
   "keywords": [],
-  "author": "G-5  <alexander.repeta@gmail.com>",
+  "author": "G-5  <alexshlihta@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/alexshlikhta/team-project-js/issues"
