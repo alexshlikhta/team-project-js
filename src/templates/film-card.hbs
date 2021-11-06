@@ -1,0 +1,16 @@
+{{#each this}}
+  <li>
+    <div class='film-card'>
+        <a href='{{largeImageURL}}'>
+        <img class='photo-image' src='{{webformatURL}}' alt='{{tags}}' />
+        <p class='stats-item'>
+          {{likes}}
+        </p>
+        <p class='stats-item'>
+            <span>{{}}</span>
+            <span>{{}}</span>
+        </p>
+      </a>
+    </div>
+  </li>
+{{/each}}
