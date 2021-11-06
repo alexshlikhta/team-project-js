@@ -1,0 +1,20 @@
+.container {
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+
+  @include phone {
+    padding: 0 20px;
+    max-width: $bp-mobile;
+  }
+
+  @include tablet {
+    padding: 0 75px;
+    max-width: $bp-tablet;
+  }
+
+  @include desktop {
+    padding: 0 70px;
+    max-width: $bp-desktop;
+  }
+}

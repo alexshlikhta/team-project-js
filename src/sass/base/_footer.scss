@@ -1,0 +1,43 @@
+.footer {
+  background-color: var(--color-grey);
+  text-align: center;
+  padding: 30px 0;
+  margin-top: auto;
+
+  &__text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    color: var(--color-black-1);
+    display: inline-block;
+    font-size: 14px;
+    line-height: 16px;
+
+    @include tablet {
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+
+  &__icon {
+    margin: 0 10px;
+    display: inline-block;
+  }
+
+  &__btn {
+    color: var(--color-black-1);
+    border: none;
+    text-decoration: underline;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    transition: color ease-out 0.3s;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: var(--color-black);
+      text-decoration: none;
+    }
+  }
+}
