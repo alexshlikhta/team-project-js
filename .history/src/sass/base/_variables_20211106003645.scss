@@ -1,0 +1,30 @@
+:root {
+    // colors
+    --color-white: #ffffff;
+    --color-black: #000000;
+}
+
+//  BreakPoints
+$bp-mobile: 320px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+
+//mixins
+
+@mixin phone {
+    @media screen and (max-width: #{$bp-mobile}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: #{$bp-tablet}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (max-width: #{$bp-desktop}) {
+        @content;
+    }
+}
