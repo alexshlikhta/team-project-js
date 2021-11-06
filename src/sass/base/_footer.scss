@@ -20,8 +20,11 @@
   }
 
   &__icon {
-    margin: 0 10px;
+    margin: 12px 10px 0;
     display: inline-block;
+
+    @include tablet {
+    }
   }
 
   &__btn {

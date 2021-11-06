@@ -2,3 +2,7 @@
 @import './base/base';
 @import './base/container';
 @import './base/footer';
+
+// components
+@import './elements/pagination';
+@import 'tui-pagination/dist/tui-pagination.css';
