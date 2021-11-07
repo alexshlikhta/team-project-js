@@ -1,6 +1,7 @@
 import './sass/main.scss';
 import refs from './js/refs';
 import Pagination from 'tui-pagination';
+import { fetchMoviesInFirstPage } from './js/ApiServices.js';
 
 const { paginationBox } = refs;
 
@@ -28,3 +29,5 @@ const paginationOptions = {
 
 const pagination = new Pagination(paginationBox, paginationOptions);
 
+// just for test
+fetchMoviesInFirstPage;
