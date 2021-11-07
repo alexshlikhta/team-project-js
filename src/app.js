@@ -27,3 +27,4 @@ const paginationOptions = {
 };
 
 const pagination = new Pagination(paginationBox, paginationOptions);
+
