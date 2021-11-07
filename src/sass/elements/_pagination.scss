@@ -1,0 +1,71 @@
+.tui-pagination {
+  margin: auto 0 40px 0;
+  height: unset;
+
+  & .tui {
+    &-last,
+    &-first,
+    &-ico-first,
+    &-ico-last,
+    &-prev-is-ellip,
+    &-next-is-ellip {
+      display: none;
+    }
+
+    &-ico-prev,
+    &-ico-next {
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-grey);
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all ease-out 0.3s;
+
+      &:hover {
+        background: #8080803b;
+      }
+
+      & svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    &-ico-prev {
+      margin-right: 20px;
+    }
+
+    &-ico-next {
+      margin-left: 20px;
+    }
+
+    &-page-btn {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 16px;
+      color: var(--color-black);
+      border: none;
+      width: 30px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color ease-out 0.3s;
+    }
+
+    &-is-selected {
+      width: 40px;
+      height: 40px;
+      background-color: var(--color-orange);
+      border-radius: 5px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background-color: #ff6b08a4;
+      }
+    }
+  }
+}
