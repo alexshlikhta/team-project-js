@@ -1,6 +1,9 @@
-const API_KEY = "c3dfb97c4e42ba6803ce4a8859444b9b";
-const BASE_URL = "https://developers.themoviedb.org/3/";
+import axios from 'axios';
 
-export default class APIService {
-    constructor() {}
-}
+const API_KEY = 'afc2024e71269fd3f1e3cbd71f7c4df4';
+const url = `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`;
+
+export const fetchMoviesInFirstPage = axios
+  .get(url)
+  .then(res => console.log(res.data.results))
+  .catch(error => error);
