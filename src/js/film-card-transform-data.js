@@ -1,7 +1,7 @@
 import { genresObj } from '../app.js';
 
 export function filmCardTransformData(data) {
-  console.log(genresObj);
+  // console.log(genresObj);
   return data.map(film => {
     film.year = film.release_date ? film.release_date.split('-')[0] : 'No information';
 
