@@ -1,16 +1,29 @@
 {{#each this}}
-  <li>
-    <div class='film-card'>
-        <a href='{{largeImageURL}}'>
-        <img class='photo-image' src='{{webformatURL}}' alt='{{tags}}' />
-        <p class='stats-item'>
-          {{likes}}
+  <li class='films__item item'>
+    <a class='films__link link' href='https://image.tmdb.org/t/p/w780{{poster_path}}'>
+      <div class='films__thumb'>
+        <picture>
+          <source
+            srcset='
+                https://image.tmdb.org/t/p/w342{{poster_path}} 1x,
+                https://image.tmdb.org/t/p/w780{{poster_path}} 2x'
+            type='image/jpeg'
+          />
+          <img
+            class='films__image'
+            src='#'
+            alt='{{original_title}}'
+            data-source='https://image.tmdb.org/t/p/w780{{poster_path}}'
+          />
+        </picture>
+        <p class='films__name'>
+          {{original_title}}
         </p>
-        <p class='stats-item'>
-            <span>{{}}</span>
-            <span>{{}}</span>
+        <p class='films__description'>
+          <span class='films__info'>{{genres}} | {{year}}</span>
+          <span class='films__votes'>{{vote_average}}</span>
         </p>
-      </a>
-    </div>
+      </div>
+    </a>
   </li>
 {{/each}}
