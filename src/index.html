@@ -18,7 +18,17 @@
     />
   </head>
   <body>
-    <header></header>
+    <header>
+      <form class="search-form" id="search-form">
+        <input
+          type="text"
+          name="query"
+          autocomplete="off"
+          placeholder="Поиск фильмов"
+        />
+        <!-- <button type="submit">Search</button> -->
+      </form>
+    </header>
 
     <main class="main">
       <div class="container"></div>
@@ -28,5 +38,6 @@
     <include src="./partials/footer.html"></include>
 
     <script src="./app.js"></script>
+    <script src="./js/search.js"></script>
   </body>
 </html>
