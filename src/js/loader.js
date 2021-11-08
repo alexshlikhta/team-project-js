@@ -12,8 +12,8 @@ const markup = `<div class="sk-chase">
 const loader = basicLightbox.create(markup);
 export default { loader };
 
-console.log(loader);
-loader.show();
+// console.log(loader);
+// loader.show();
 
 // ОТОБРАЗИТЬ спиннер - loader.show();
 // СКРЫТЬ спиннер - loader.close();
