@@ -1,5 +1,4 @@
-import { genresObj } from '../app.js';
-
+import  genresObj  from '../db/genres.json';
 
 // rename, refactored to method of ApiServices class
 export function filmCardTransformData(data) {

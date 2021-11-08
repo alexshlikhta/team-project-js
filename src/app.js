@@ -4,7 +4,7 @@ import cardTemplate from './templates/film-card.hbs';
 import filmsPagination from './js/pagination.js';
 import debounce from 'lodash.debounce';
 import { error } from '@pnotify/core';
-// import { filmCardTransformData } from './film-card-transform-data';
+import { filmCardTransformData } from './js/film-card-transform-data';
 
 const ref = {
   searchForm: document.querySelector('.search-form'),
@@ -58,6 +58,7 @@ function renderMarkup(results) {
     });
   }
   ref.filmsList.innerHTML = cardTemplate(results);
+  ref.filmsList.innerHTML = cardTemplate(filmCardTransformData(results));
 }
 
 function initPagination(pagOptions) {
