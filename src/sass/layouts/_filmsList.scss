@@ -1,15 +1,28 @@
 .films {
   list-style-type: none;
   padding: 0;
-  margin: 0 -15px;
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
   flex-wrap: wrap;
 
+  @include tablet {
+    margin: 0 -15px;
+  }
+
   &__item {
-    padding: 15px;
-    flex: 0 0 33.33%;
+    padding: 0;
+    flex: 0 0 100%;
+    padding-bottom: 20px;
+
+    @include tablet {
+      padding: 15px;
+      flex: 0 0 50%;
+    }
+
+    @include desktop {
+      flex: 0 0 33.33%;
+    }
   }
 
   & img {
