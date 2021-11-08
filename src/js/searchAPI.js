@@ -15,4 +15,10 @@ export default class searchAPI {
         .then(response => response.data.results)
         .catch(error => error);
     }
+    // getGenres() {
+    //     return axios
+    //     .get(`${BASE_URL}genre/movie/list?api_key=${API_KEY}&language=en-US`)
+    //     .then(response => response.data)
+    //     .catch(error => error);
+    // }
 }

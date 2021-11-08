@@ -1,4 +1,4 @@
-import { genresObj } from '../app.js';
+import  genresObj  from '../db/genres.json';
 
 export function filmCardTransformData(data) {
   // console.log(genresObj);

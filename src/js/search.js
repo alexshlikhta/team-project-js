@@ -34,13 +34,12 @@ function markUp(results) {
                 delay: 1500,
               })
         }
-    ref.searchResults.insertAdjacentHTML('beforeend',cardTemplate(results))
+    ref.searchResults.insertAdjacentHTML('beforeend',cardTemplate(filmCardTransformData(results)))
 }
 
 ref.searchForm.addEventListener('input', debounce(onSearch, 500))
   // refs.searchForm.addEventListener('submit', onSearch)
 
 
- 
 
     
