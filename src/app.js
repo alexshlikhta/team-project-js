@@ -57,7 +57,6 @@ function renderMarkup(results) {
       delay: 1500,
     });
   }
-  ref.filmsList.innerHTML = cardTemplate(results);
   ref.filmsList.innerHTML = cardTemplate(filmCardTransformData(results));
 }
 
