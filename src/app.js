@@ -2,6 +2,8 @@ import './sass/main.scss';
 import ApiServices from './js/ApiServices.js';
 import { pagination } from './js/pagination';
 import cardTemplate from './templates/film-card.hbs';
+import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
+import './js/loader';
 
 // just for test
 // pagination();
