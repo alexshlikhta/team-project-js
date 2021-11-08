@@ -1,6 +1,8 @@
 import './sass/main.scss';
 import ApiServices from './js/ApiServices.js';
 import cardTemplate from './templates/film-card.hbs';
+import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
+import './js/loader';
 import filmsPagination from './js/pagination.js';
 import debounce from 'lodash.debounce';
 import { error } from '@pnotify/core';
