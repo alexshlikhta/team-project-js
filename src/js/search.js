@@ -1,38 +1,40 @@
-import debounce from 'lodash.debounce'
-
+import debounce from 'lodash.debounce';
 import { error } from "@pnotify/core";
 import '@pnotify/core/dist/BrightTheme.css';
 import "@pnotify/core/dist/PNotify.css";
 import searchAPI from './searchAPI'
 
-// import cardMarkup from '../temp_card.hbs'
+import cardTemplate from '../templates/film-card.hbs';
+import { filmCardTransformData } from './film-card-transform-data';
+
 
 const search = new searchAPI()
 
 const ref = {
     searchForm: document.querySelector('.search-form'),
-    searchResults: document.querySelector('main container')
+    searchResults: document.querySelector('.films')
     }
 
 function onSearch(event){
+    if (ref.searchForm.elements.query.value === '')
+    return
     event.preventDefault();
     search.query = ref.searchForm.elements.query.value;
-    
     // search.setPage()
-    // ref.searchResults.innerHTML = ''
+    ref.searchResults.innerHTML = ''
 
-    search.fetchMovies().then(markUp).catch(console.log)
+    search.fetchMovies().then(markUp).catch(error)
 }
 
 function markUp(results) {
-    console.log(results);
+    // console.log(results);
     if (results.length === 0) {
             throw new error({
                 text: "Woops! Not Found!",
                 delay: 1500,
               })
         }
-    // ref.searchResults.insertAdjacentHTML('beforeend',cardMarkup(results))
+    ref.searchResults.insertAdjacentHTML('beforeend',cardTemplate(results))
 }
 
 ref.searchForm.addEventListener('input', debounce(onSearch, 500))
