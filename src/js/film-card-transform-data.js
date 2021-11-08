@@ -1,5 +1,7 @@
 import { genresObj } from '../app.js';
 
+
+// rename, refactored to method of ApiServices class
 export function filmCardTransformData(data) {
   // console.log(genresObj);
   return data.map(film => {

@@ -20,20 +20,14 @@
   <body>
     <header>
       <form class="search-form" id="search-form">
-        <input
-          type="text"
-          name="query"
-          autocomplete="off"
-          placeholder="Поиск фильмов"
-        />
+        <input type="text" name="query" autocomplete="off" placeholder="Поиск фильмов" />
         <!-- <button type="submit">Search</button> -->
       </form>
     </header>
 
     <main class="main">
       <div class="container">
-        <ul class="films js-films">
-        </ul>
+        <ul class="films js-films"></ul>
       </div>
       <include src="./partials/pagination.html"></include>
     </main>
@@ -41,6 +35,5 @@
     <include src="./partials/footer.html"></include>
 
     <script src="./app.js"></script>
-    <script src="./js/search.js"></script>
   </body>
 </html>
