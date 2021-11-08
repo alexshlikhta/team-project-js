@@ -11,7 +11,7 @@ export function filmCardTransformData(data) {
 
     if (genresNamesArr.length === 0) {
       film.genres = 'No information';
-    } else if (genresNamesArr.length < 3) {
+    } else if (genresNamesArr.length <= 3) {
       film.genres = genresNamesArr.join(', ');
     } else {
       film.genres = `${genresNamesArr[0]}, ${genresNamesArr[1]}, Other`;
