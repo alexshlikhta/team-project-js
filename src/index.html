@@ -18,14 +18,19 @@
     />
   </head>
   <body>
-    <header>
-      <form class="search-form" id="search-form">
-        <input type="text" name="query" autocomplete="off" placeholder="Поиск фильмов" />
-        <!-- <button type="submit">Search</button> -->
-      </form>
-    </header>
+    <include src="./partials/header.html"></include>
 
     <main class="main">
+      <a id="upbutton" href="#" onclick="smoothJumpUp(); return false;">
+        <img
+          src="./images/upArrowButton.svg"
+          alt="Top"
+          border="none"
+          title="Наверх"
+          height="40"
+          width="40"
+        />
+      </a>
       <div class="container">
         <ul class="films js-films"></ul>
       </div>
@@ -33,7 +38,23 @@
     </main>
 
     <include src="./partials/footer.html"></include>
+    <script>
+      var smoothJumpUp = function () {
+        if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+          window.scrollBy(0, -50);
+          setTimeout(smoothJumpUp, 10);
+        }
+      };
 
+      window.onscroll = function () {
+        var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrolled > 100) {
+          document.getElementById('upbutton').style.display = 'block';
+        } else {
+          document.getElementById('upbutton').style.display = 'none';
+        }
+      };
+    </script>
     <script src="./app.js"></script>
   </body>
 </html>

@@ -1,6 +1,7 @@
 @import './base/variables';
 @import './base/base';
 @import './base/container';
+@import './base/header';
 
 // layouts
 @import './layouts//filmsList';
@@ -13,3 +14,4 @@
 @import '@pnotify/core/dist/BrightTheme.css';
 @import '@pnotify/core/dist/PNotify.css';
 @import 'tui-pagination/dist/tui-pagination.css';
+@import './elements/backToTopBtn';

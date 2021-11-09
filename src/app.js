@@ -1,13 +1,13 @@
 import './sass/main.scss';
 import ApiServices from './js/ApiServices.js';
 import cardTemplate from './templates/film-card.hbs';
-import './js/loader';
+import loader from './js/loader';
 import filmsPagination from './js/pagination.js';
 import debounce from 'lodash.debounce';
 import { error } from '@pnotify/core';
 import { filmCardTransformData } from './js/film-card-transform-data';
 
-const ref = {
+const refs = {
   searchForm: document.querySelector('.search-form'),
   filmsList: document.querySelector('.js-films'),
 };
@@ -32,12 +32,12 @@ renderPopularFilms();
 async function onSearch(event) {
   event.preventDefault();
 
-  if (ref.searchForm.elements.query.value === '') {
+  if (refs.searchForm.elements.query.value === '') {
     renderPopularFilms();
   } else {
-    dataApiServices.query = ref.searchForm.elements.query.value;
-    ref.filmsList.innerHTML = '';
-    const dataSearched = await dataApiServices.fetchQueridFilms();
+    dataApiServices.query = refs.searchForm.elements.query.value;
+    refs.filmsList.innerHTML = '';
+    const dataSearched = await dataApiServices.fetchQueriedFilms();
     renderMarkup(dataSearched.results);
 
     let pagOptions = {
@@ -58,7 +58,9 @@ function renderMarkup(results) {
       delay: 1500,
     });
   }
-  ref.filmsList.innerHTML = cardTemplate(filmCardTransformData(results));
+  loader.show();
+  refs.filmsList.innerHTML = cardTemplate(filmCardTransformData(results));
+  loader.close();
 }
 
 function initPagination(pagOptions) {
@@ -69,11 +71,11 @@ function initPagination(pagOptions) {
     if (pagOptions.type === 'popular') {
       pagData = await dataApiServices.fetchPopularFilms();
     } else {
-      pagData = await dataApiServices.fetchQueridFilms();
+      pagData = await dataApiServices.fetchQueriedFilms();
     }
 
     renderMarkup(pagData.results);
   });
 }
 
-ref.searchForm.addEventListener('input', debounce(onSearch, 500));
+refs.searchForm.addEventListener('input', debounce(onSearch, 500));
