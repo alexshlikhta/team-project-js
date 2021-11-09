@@ -1,33 +1,92 @@
 .films {
-  list-style-type: none;
+  margin: 20px 0 40px;
   padding: 0;
-  display: flex;
-  justify-content: flex-start;
-  align-items: stretch;
-  flex-wrap: wrap;
+  list-style: none;
 
   @include tablet {
-    margin: 0 -15px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1 * $card-set-gap;
+    margin-top: -1 * $card-set-gap + 60px;
+    margin-bottom: 50px;
+  }
+
+  @include desktop {
+    margin-bottom: 46px;
   }
 
   &__item {
     padding: 0;
-    flex: 0 0 100%;
-    padding-bottom: 20px;
+    flex-basis: 280px;
 
     @include tablet {
-      padding: 15px;
-      flex: 0 0 50%;
+      flex-basis: calc(100% / 2 - #{$card-set-gap});
+      margin-left: $card-set-gap;
+      margin-top: $card-set-gap;
     }
 
     @include desktop {
-      flex: 0 0 33.33%;
+      flex-basis: calc(100% / 3 - #{$card-set-gap});
     }
   }
 
-  & img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  &__item:not(:last-child) {
+    margin-bottom: 20px;
+
+    @include tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__thumb {
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 280px;
+    height: 398px;
+    object-fit: fill;
+
+    @include tablet {
+      width: 294px;
+    }
+
+    @include desktop {
+      width: 274px;
+    }
+  }
+
+  &__content {
+    padding-top: 10px;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 12px;
+  }
+
+  &__name {
+    line-height: 1.33;
+    color: var(--color-black);
+    text-transform: uppercase;
+  }
+
+  &__description {
+    display: flex;
+    line-height: 1.33;
+    color: var(--color-orange);
+  }
+
+  &__votes {
+    display: flex;
+    width: 36px;
+    height: 16px;
+    margin-left: 10px;
+
+    color: var(--color-white);
+    background-color: var(--color-orange);
+    line-height: 1.17;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
   }
 }

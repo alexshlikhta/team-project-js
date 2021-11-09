@@ -4,8 +4,36 @@ body {
   min-height: 100vh;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 p {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.list {
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
 }
 
 main {
@@ -14,4 +42,3 @@ main {
   flex-direction: column;
   justify-content: center;
 }
-
