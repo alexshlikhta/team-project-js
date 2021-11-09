@@ -2,7 +2,7 @@ import './sass/main.scss';
 import ApiServices from './js/ApiServices.js';
 import cardTemplate from './templates/film-card.hbs';
 import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
-import './js/loader';
+import loader from './js/loader';
 import filmsPagination from './js/pagination.js';
 import debounce from 'lodash.debounce';
 import { error } from '@pnotify/core';
@@ -59,7 +59,9 @@ function renderMarkup(results) {
       delay: 1500,
     });
   }
+  loader.show();
   refs.filmsList.innerHTML = cardTemplate(filmCardTransformData(results));
+  loader.close();
 }
 
 function initPagination(pagOptions) {
