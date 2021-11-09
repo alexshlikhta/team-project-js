@@ -3,6 +3,7 @@
     openModalBtn: document.querySelector('[data-modal-open]'),
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
+    backToTopBtn: document.querySelector('#upbutton'),
   };
 
   window.addEventListener('keydown', onEscKeyPress);
@@ -15,6 +16,7 @@
     refs.modal.classList.toggle('is-hidden');
     window.addEventListener('keydown', onEscKeyPress);
     document.body.classList.add('stop-scrolling');
+    refs.backToTopBtn.style.display = 'none';
   }
 
   function onCloseModalOverlayClick(e) {
