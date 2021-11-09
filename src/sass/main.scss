@@ -3,3 +3,15 @@
 @import './base/container';
 @import './base/footer';
 @import './base/header';
+
+// layouts
+@import './layouts//filmsList';
+@import './layouts/footer';
+@import './layouts/loader';
+
+// components
+@import './elements/pagination';
+@import '@pnotify/core/dist/BrightTheme.css';
+@import '@pnotify/core/dist/PNotify.css';
+@import 'tui-pagination/dist/tui-pagination.css';
+@import './elements/backToTopBtn';

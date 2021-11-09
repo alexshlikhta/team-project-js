@@ -4,6 +4,7 @@
   --color-black: #000000;
   --color-black-1: #545454;
   --color-grey: #f7f7f7;
+  --color-orange: #ff6b08;
 
   font-family: 'Roboto', sans-serif;
 }
@@ -12,6 +13,10 @@
 $bp-mobile: 320px;
 $bp-tablet: 768px;
 $bp-desktop: 1024px;
+
+//variables
+
+$card-set-gap: 30px;
 
 //mixins
 

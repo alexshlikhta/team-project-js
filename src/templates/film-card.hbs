@@ -1,0 +1,31 @@
+{{#each this}}
+  <li class='films__item'>
+    <a class='films__link link' href='https://image.tmdb.org/t/p/w780{{poster_path}}'>
+      <div class='films__thumb'>
+        <picture>
+          <source
+            srcset='
+                https://image.tmdb.org/t/p/w342{{poster_path}} 1x,
+                https://image.tmdb.org/t/p/w780{{poster_path}} 2x'
+            type='image/jpeg'
+          />
+          <img
+            class='films__image'
+            src='#'
+            alt='{{original_title}}'
+            data-source='https://image.tmdb.org/t/p/w780{{poster_path}}'
+          />
+        </picture>
+      </div>
+      <div class='films__content'>
+        <p class='films__name'>
+          {{original_title}}
+        </p>
+        <p class='films__description'>
+          <span class='films__info'>{{genres}} | {{year}}</span>
+          <span class='films__votes'>{{vote_average}}</span>
+        </p>
+      </div>
+    </a>
+  </li>
+{{/each}}
