@@ -17,3 +17,4 @@ loader.show();
 
 // ОТОБРАЗИТЬ спиннер - loader.show();
 // СКРЫТЬ спиннер - loader.close();
+loader.close();
