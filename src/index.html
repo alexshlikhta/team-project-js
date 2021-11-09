@@ -18,12 +18,43 @@
     />
   </head>
   <body>
-    <header>
-      <form class="search-form" id="search-form">
-        <input type="text" name="query" autocomplete="off" placeholder="Поиск фильмов" />
-        <!-- <button type="submit">Search</button> -->
+    <header class="container header ">
+      <nav class="nav">
+    
+        <div class="logo"><a href="./index.html">
+            <img src="./images/film.svg" alt="logo"><span class="text"> Filmoteka </span>
+          </a></div>
+    
+        <ul class="nav-menu">
+          <li class="nav-item"><button class="nav-btn active">HOME</button></li>
+          <li class="nav-item"><button class="nav-btn">MY LIBRARY</button></li>
+        </ul>
+    
+      </nav>
+      <div class="search-form">
+    
+
+          <form class="search-form" id="search-form">
+        <input type="text" name="query" autocomplete="off" placeholder="Search" />
+
+        <img src="./images/search.svg" alt="search">
       </form>
+    
+      </div>
+    
+      <h5 class="error-msg hdr-hidden">Search result not successful. Enter the correct movie name</h5>
+    
+      <ul class="users-lists hdr-hidden">
+        <li class="ul-item"><button class="users-lists-button active">WATCHED</button></li>
+        <li class="ul-item"><button class="users-lists-button">QUEUE</button></li>
+      </ul>
     </header>
+
+    <main>
+
+    </main>
+
+    <footer class="footer">
 
     <main class="main">
       <a id="upbutton" href="#" onclick="smoothJumpUp(); return false;">
