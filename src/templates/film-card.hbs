@@ -1,5 +1,5 @@
 {{#each this}}
-  <li class='films__item item'>
+  <li class='films__item'>
     <a class='films__link link' href='https://image.tmdb.org/t/p/w780{{poster_path}}'>
       <div class='films__thumb'>
         <picture>
@@ -16,11 +16,13 @@
             data-source='https://image.tmdb.org/t/p/w780{{poster_path}}'
           />
         </picture>
+      </div>
+      <div class='films__content'>
         <p class='films__name'>
           {{original_title}}
         </p>
         <p class='films__description'>
-          <span class='films__info'>{{genres}} | {{year}}</span>
+          <span class='films__info'>{{genres}}Action, Thriller | 1999{{year}}</span>
           <span class='films__votes'>{{vote_average}}</span>
         </p>
       </div>
