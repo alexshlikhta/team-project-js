@@ -104,6 +104,7 @@
     border-top: none;
     border-left: none;
     border-right: none;
+    outline: none;
   }
 
   & img {
@@ -121,6 +122,7 @@
 }
 
 .error-msg {
+  margin-top: 15px;
   font-family: Roboto;
   font-size: 14px;
   font-style: normal;
