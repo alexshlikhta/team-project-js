@@ -47,6 +47,20 @@ img {
   text-decoration: none;
 }
 
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
 main {
   flex: 1;
   display: flex;

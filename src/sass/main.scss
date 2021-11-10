@@ -1,9 +1,11 @@
 @import './base/variables';
 @import './base/base';
 @import './base/container';
+@import './base/visually-hidden';
 @import './base/header';
 
 // layouts
+@import './layouts/header';
 @import './layouts//filmsList';
 @import './layouts/footer';
 @import './layouts/loader';
@@ -15,3 +17,4 @@
 @import '@pnotify/core/dist/PNotify.css';
 @import 'tui-pagination/dist/tui-pagination.css';
 @import './elements/backToTopBtn';
+@import './elements/modalDev';
