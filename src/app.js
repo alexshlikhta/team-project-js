@@ -13,7 +13,7 @@ const refs = {
   searchForm: document.querySelector('#search-form'),
   filmsList: document.querySelector('.js-films'),
   errorMsg: document.querySelector('#error'),
-};
+  };
 
 const dataApiServices = new ApiServices();
 

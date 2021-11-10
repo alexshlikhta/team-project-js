@@ -187,3 +187,44 @@
     }
   }
 }
+
+.users-lists {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  &-button {
+    width: 136px;
+    height: 44px;
+    left: 369px;
+    top: 121px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+
+    background: transparent;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+    color: #fff;
+  }
+
+  & .active {
+    background: rgba(255, 107, 1, 1);
+    border: rgba(255, 107, 1, 1);
+  }
+}
+
+.ul-item {
+  margin-right: 15px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.hdr-hidden {
+  display: none;
+}
