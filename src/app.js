@@ -1,4 +1,5 @@
 import './sass/main.scss';
+import './js/header';
 import ApiServices from './js/ApiServices.js';
 import cardTemplate from './templates/film-card.hbs';
 import loader from './js/loader';
