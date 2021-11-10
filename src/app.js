@@ -6,6 +6,7 @@ import loader from './js/loader';
 import filmsPagination from './js/pagination.js';
 import debounce from 'lodash.debounce';
 import { filmCardTransformData } from './js/film-card-transform-data';
+import './js/modal';
 import './js/totopbutton.js'
 
 const refs = {
