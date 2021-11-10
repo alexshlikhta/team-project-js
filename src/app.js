@@ -78,3 +78,4 @@ function initPagination(pagOptions) {
 }
 
 ref.searchForm.addEventListener('input', debounce(onSearch, 500));
+
