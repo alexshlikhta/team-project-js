@@ -1,4 +1,5 @@
 import './sass/main.scss';
+import './js/header';
 import ApiServices from './js/ApiServices.js';
 import cardTemplate from './templates/film-card.hbs';
 import '../node_modules/basiclightbox/dist/basicLightbox.min.css';

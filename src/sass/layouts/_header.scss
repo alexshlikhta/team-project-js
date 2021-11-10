@@ -96,6 +96,15 @@
   color: var(--color-white);
 }
 
+.current::after {
+  position: absolute;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-orange);
+}
+
 .search {
   display: flex;
   align-items: center;
@@ -142,5 +151,39 @@
 
   @include desktop {
     transform: translate(567px, -26px);
+  }
+}
+
+.header-library {
+  height: 230px;
+  min-width: 320px;
+  width: 100%;
+  // background-image: url('../images/mobile/library/rectangle@1x.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    // background-image: url('../images/mobile/library/rectangle@2x.jpg');
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 100%;
+    background-position: bottom;
+    // background-image: url('../images/tablet/library/rectangle@1x.jpg');
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      // background-image: url('../images/tablet/library/rectangle@2x.jpg');
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 100%;
+    // background-image: url('../images/desktop/library/rectangle@1x.jpg');
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      // background-image: url('../images/desktop/library/rectangle@2x.jpg');
+    }
   }
 }
