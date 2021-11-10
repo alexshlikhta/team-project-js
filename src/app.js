@@ -6,6 +6,7 @@ import filmsPagination from './js/pagination.js';
 import debounce from 'lodash.debounce';
 import { error } from '@pnotify/core';
 import { filmCardTransformData } from './js/film-card-transform-data';
+import './js/modal';
 
 const refs = {
   searchForm: document.querySelector('.search-form'),
