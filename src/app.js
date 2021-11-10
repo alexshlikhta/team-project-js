@@ -58,7 +58,7 @@ function renderMarkup(results) {
   if (results.length === 0) {
     refs.errorMsg.classList.remove('hdr-hidden')
   } else {
-    refs.errorMsg.classList.add('hdr-hidden')
+    // refs.errorMsg.classList.add('hdr-hidden')
   }
   refs.filmsList.innerHTML = cardTemplate(filmCardTransformData(results));
   loader.close();

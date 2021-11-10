@@ -27,7 +27,7 @@
 
   @include desktop {
     width: 100%;
-    background-image: url('../images/desktop/bg-header-desktop.jpg');
+    // background-image: url('../images/desktop/bg-header-desktop.jpg');
     margin-bottom: 35px;
 
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
