@@ -20,11 +20,11 @@ export default class ApiServices {
       return error;
     }
   }
-
-  async fetchQueridFilms() {
+  //get searched movies by name(query)
+  async fetchQueriedFilms() {
     try {
       const response = await axios.get(
-        // need to verify request's url
+        // need to verify request's url (url ok)
         `${BASE_URL}${this.endPoint}${API_KEY}&language=en-US&page=${this.page}&query=${this.query}`,
       );
       return response.data;
