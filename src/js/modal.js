@@ -1,3 +1,5 @@
+import modalCard from '../templates/modalCard.hbs';
+import '../sass/layouts/_modal.scss';
 import * as basicLightbox from 'basiclightbox';
 import ApiServices from './ApiServices';
 
@@ -15,7 +17,8 @@ async function openLightbox(event) {
   dataApiServices.setMovieId(event.target.attributes.id.value);
   const dataFilmById = await dataApiServices.fetchFilmById();
 
-  const modal = renderModal(dataFilmById);
+  const markup = modalCard(dataFilmById);
+  const modal = basicLightbox.create(markup);
   modal.show();
 
   window.addEventListener('keydown', closeModalHandler);
@@ -26,11 +29,4 @@ async function openLightbox(event) {
       window.removeEventListener('keydown', closeModalHandler);
     }
   }
-}
-
-function renderModal(data) {
-  const markup = `
-      <img src="https://image.tmdb.org/t/p/w780${data.poster_path}" width="800" height="600">
-    `;
-  return basicLightbox.create(markup);
 }
