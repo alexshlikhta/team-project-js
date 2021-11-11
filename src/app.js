@@ -7,13 +7,14 @@ import filmsPagination from './js/pagination.js';
 import debounce from 'lodash.debounce';
 import { filmCardTransformData } from './js/film-card-transform-data';
 import './js/modal';
-import './js/totopbutton.js'
+import './js/modalDev';
+import './js/totopbutton.js';
 
 const refs = {
   searchForm: document.querySelector('#search-form'),
   filmsList: document.querySelector('.js-films'),
   errorMsg: document.querySelector('#error'),
-  };
+};
 
 const dataApiServices = new ApiServices();
 
@@ -57,7 +58,7 @@ async function onSearch(event) {
 function renderMarkup(results) {
   loader.show();
   if (results.length === 0) {
-    refs.errorMsg.classList.remove('hdr-hidden')
+    refs.errorMsg.classList.remove('hdr-hidden');
   } else {
     // refs.errorMsg.classList.add('hdr-hidden')
   }
