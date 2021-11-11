@@ -1,87 +1,75 @@
-.modal {
+.modal-container {
   position: absolute;
+  left: 0px;
+  top: 228px;
   margin: 0 auto;
+  // margin-top: 100px;
+  // justify-content: space-between;
+  background-color: var(--color-white);
+  min-height: 1090px;
+  min-width: 320px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 5px #ff6b0160;
+}
 
-  &__close-btn {
-    position: relative;
-    top: 35px;
-    right: 20px;
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    background: tomato;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  &__icon-close {
-    width: 24px;
-    height: 24px;
-    fill: rgb(72, 214, 50);
-  }
+.modal {
+  margin-top: 100px;
+  justify-content: space-between;
+  background-color: #ffffff;
+  min-height: 958px;
+  width: 280px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 5px #ff6b0160;
 
-  // .close-modal-btn {
-  //   position: absolute;
-  //   top: 8px;
-  //   right: 8px;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   cursor: pointer;
-  //   width: 22px;
-  //   height: 22px;
-  //   padding: 0;
-  //   border: 1px solid rgba(0, 0, 0, 0.1);
-  //   border-radius: 50%;
-  //   background-color: transparent;
-  //   fill: currentColor;
-  //   outline: none;
-  //   transition: all 0.25s linear;
-  //   &:hover,
-  //   &:focus {
-  //     color: #ff6b01;
-  //     border: 1px solid #ff6b01;
-  //   }
+  // &__close-btn {
+  // }
+  // &__icon-close {
+  // }
 
-  &__card {
-  }
-  &__item-img {
-  }
+  // &__card {
+  // }
+  // &__item-img {
+  // }
   &__image {
-    width: 280px;
-    height: 416px;
+    display: block;
+    top: 15px;
+    // position: relative;
+    border-radius: 10px;
+    margin: 48px 20px 30px;
+    width: 240px;
+    height: 356px;
+    margin-top: 300px;
   }
-  &__wrapper {
-  }
+  // &__wrapper {
+  // }
 }
-.card {
-  &__title {
-  }
-  &__item {
-  }
-  &__info {
-  }
-  &__vote-average {
-  }
-  &__about {
-  }
-  &__description {
-  }
-}
+// .card {
+//   &__title {
+//   }
+//   &__item {
+//   }
+//   &__info {
+//   }
+//   &__vote-average {
+//   }
+//   &__about {
+//   }
+//   &__description {
+//   }
+// }
 
-.modal-button {
-  .storage {
-  }
-  &__item {
-  }
-  &__label {
-  }
-  &__input {
-  }
-  &__btn {
-  }
-}
+// .modal-button {
+//   .storage {
+//   }
+//   &__item {
+//   }
+//   &__label {
+//   }
+//   &__input {
+//   }
+//   &__btn {
+//   }
+// }
 
 // .modal-card {
 //   position: relative;

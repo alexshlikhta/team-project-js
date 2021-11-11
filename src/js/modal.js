@@ -1,5 +1,4 @@
 import modalCard from '../templates/modalCard.hbs';
-import '../sass/layouts/_modal.scss';
 import * as basicLightbox from 'basiclightbox';
 import ApiServices from './ApiServices';
 
