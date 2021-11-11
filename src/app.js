@@ -14,13 +14,14 @@ const refs = {
   searchForm: document.querySelector('#search-form'),
   filmsList: document.querySelector('.js-films'),
   errorMsg: document.querySelector('#error'),
+  votesSpan: document.getElementsByClassName('films__votes'),
 };
 
 const dataApiServices = new ApiServices();
 
 async function renderPopularFilms() {
   const dataPopular = await dataApiServices.fetchPopularFilms();
-  renderMarkup(dataPopular.results);
+  renderMarkup(dataPopular.results, { showVotes: false });
 
   let pagOptions = {
     type: 'popular',
@@ -42,7 +43,7 @@ async function onSearch(event) {
     dataApiServices.query = refs.searchForm.elements.query.value;
     refs.filmsList.innerHTML = '';
     const dataSearched = await dataApiServices.fetchQueriedFilms();
-    renderMarkup(dataSearched.results);
+    renderMarkup(dataSearched.results, { showVotes: false });
 
     let pagOptions = {
       type: 'searched',
@@ -55,14 +56,26 @@ async function onSearch(event) {
   }
 }
 
-function renderMarkup(results) {
+function renderMarkup(results, { showVotes }) {
   loader.show();
+
   if (results.length === 0) {
     refs.errorMsg.classList.remove('hdr-hidden');
   } else {
     // refs.errorMsg.classList.add('hdr-hidden')
   }
+
   refs.filmsList.innerHTML = cardTemplate(filmCardTransformData(results));
+  if (showVotes) {
+    for (const elem of refs.votesSpan) {
+      elem.classList.remove('is-hidden');
+    }
+  } else {
+    for (const elem of refs.votesSpan) {
+      elem.classList.add('is-hidden');
+    }
+  }
+
   loader.close();
 }
 
@@ -77,7 +90,7 @@ function initPagination(pagOptions) {
       pagData = await dataApiServices.fetchQueriedFilms();
     }
 
-    renderMarkup(pagData.results);
+    renderMarkup(pagData.results, { showVotes: false });
   });
 }
 
