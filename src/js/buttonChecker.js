@@ -10,14 +10,14 @@ export function checkButtonsActive(filmId) {
     const watchedList = watchedData.split(',');
     if (watchedList.includes(filmId)) {
       watchedBtn.checked = true;
-      watchedBtn.nextElementSibling.textContent = 'REMOVE';
+      watchedBtn.nextElementSibling.textContent = 'REMOVE'; //@ rewrite to uppercase method
     }
   }
   if (queueData !== null) {
     const queueList = queueData.split(',');
     if (queueList.includes(filmId)) {
       queueBtn.checked = true;
-      queueBtn.nextElementSibling.textContent = 'REMOVE';
+      queueBtn.nextElementSibling.textContent = 'REMOVE'; //@ rewrite to uppercase method
     }
   }
 }
@@ -28,18 +28,18 @@ export function buttonSwitcher(filmId) {
   const queueBtn = buttonsAdd[1];
   if (filmId.target.id === 'js-queue') {
     watchedBtn.checked = false;
-    watchedBtn.nextElementSibling.textContent = 'TO WATCHED';
+    watchedBtn.nextElementSibling.textContent = 'TO WATCHED';  //@ rewrite to uppercase method
     queueBtn.nextElementSibling.textContent = 'REMOVE';
     if (queueBtn.checked === true) {
-      queueBtn.nextElementSibling.textContent = 'TO QUEUE';
+      queueBtn.nextElementSibling.textContent = 'TO QUEUE';  //@ rewrite to uppercase method
     }
   }
   if (filmId.target.id === 'js-watched') {
     queueBtn.checked = false;
-    queueBtn.nextElementSibling.textContent = 'TO QUEUE';
-    watchedBtn.nextElementSibling.textContent = 'REMOVE';
+    queueBtn.nextElementSibling.textContent = 'TO QUEUE'; //@ rewrite to uppercase method
+    watchedBtn.nextElementSibling.textContent = 'REMOVE'; //@ rewrite to uppercase method
     if (watchedBtn.checked === true) {
-      watchedBtn.nextElementSibling.textContent = 'TO WATCHED';
+      watchedBtn.nextElementSibling.textContent = 'TO WATCHED';  //@ rewrite to uppercase method
     }
   }
 }

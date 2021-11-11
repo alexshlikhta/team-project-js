@@ -4,7 +4,7 @@ const API_KEY = 'api_key=afc2024e71269fd3f1e3cbd71f7c4df4';
 const BASE_URL = 'https://api.themoviedb.org/3/';
 
 export default class ApiServices {
-  constructor(page) {
+  constructor() {
     this.page = 1;
     this.endPoint = 'search/movie?';
     this.url = '';
@@ -33,15 +33,7 @@ export default class ApiServices {
       return error;
     }
   }
-  // get data about requested films from API DB
-  // async fetchData() {
-  //   try {
-  //     const response = await axios.get(BASE_URL + `&page=${this.page}`);
-  //     return response.data;
-  //   } catch (error) {
-  //     return error;
-  //   }
-  // }
+
   // ============fetch by ID============//
   async fetchFilmById() {
     try {
@@ -59,7 +51,7 @@ export default class ApiServices {
   setMovieId(currentMovieId) {
     return (this.movieId = currentMovieId);
   }
-  // =====================================//
+  // ================= method for patination ==================//
   getPage() {
     return this.page;
   }
