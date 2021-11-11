@@ -8,30 +8,37 @@ const watchedBtn = document.getElementById('watched');
 const queueBtn = document.getElementById('queue');
 
 
-homeBtn.addEventListener('click', () => {
+homeBtn.addEventListener('click', onClickHome);
+myLibraryBtn.addEventListener('click', onClickMyLibrary);
+
+watchedBtn.addEventListener('click', onClickWatched);
+queueBtn.addEventListener('click', onClickQueue);
+
+function onClickHome() {
   homeBtn.classList.add('current');
   myLibraryBtn.classList.remove('current');
 
   searchForm.classList.remove('visually-hidden');
   header.classList.remove('library-page');
   containerLib.classList.add('visually-hidden');
-});
+}
 
-myLibraryBtn.addEventListener('click', () => {
+function onClickMyLibrary() {
   myLibraryBtn.classList.add('current');
   homeBtn.classList.remove('current');
 
   searchForm.classList.add('visually-hidden');
   header.classList.add('library-page');
   containerLib.classList.remove('visually-hidden');
-});
+}
 
-watchedBtn.addEventListener('click', () => {
+function onClickWatched() {
   watchedBtn.classList.add('active');
   queueBtn.classList.remove('active');
-});
+}
 
-queueBtn.addEventListener('click', () => {
+function onClickQueue() {
   queueBtn.classList.add('active');
   watchedBtn.classList.remove('active');
-});
+}
+
