@@ -27,7 +27,7 @@
 
   @include desktop {
     width: 100%;
-    // background-image: url('../images/desktop/bg-header-desktop.jpg');
+    background-image: url('../images/desktop/bg-header-desktop.jpg');
     margin-bottom: 35px;
 
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
@@ -154,36 +154,37 @@
   }
 }
 
-.header-library {
+.library-page {
   height: 230px;
   min-width: 320px;
   width: 100%;
-  // background-image: url('../images/mobile/library/rectangle@1x.jpg');
+  background-image: url('../images/mobile/bg-header-mobile2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   margin: 0 auto;
 
   @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-    // background-image: url('../images/mobile/library/rectangle@2x.jpg');
+    background-image: url('../images/mobile/bg-header-mobile2@2x.jpg');
   }
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 100%;
     background-position: bottom;
-    // background-image: url('../images/tablet/library/rectangle@1x.jpg');
+    background-image: url('../images/tablet/bg-header-tablet2.jpg');
 
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-      // background-image: url('../images/tablet/library/rectangle@2x.jpg');
+      background-image: url('../images/tablet/bg-header-tablet2@2x.jpg');
     }
   }
 
-  @media screen and (min-width: 1024px) {
+  @include desktop {
     width: 100%;
-    // background-image: url('../images/desktop/library/rectangle@1x.jpg');
+    background-image: url('../images/desktop/bg-header-desktop2.jpg');
+    margin-bottom: 35px;
 
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-      // background-image: url('../images/desktop/library/rectangle@2x.jpg');
+      background-image: url('../images/desktop/bg-header-desktop2@2x.jpg');
     }
   }
 }
@@ -207,13 +208,14 @@
 
     background: transparent;
     border-radius: 5px;
-    border: 1px solid #ffffff;
-    color: #fff;
+    border: 1px solid var(--color-white);
+    color: var(--color-white);
+    cursor: pointer;
   }
 
   & .active {
-    background: rgba(255, 107, 1, 1);
-    border: rgba(255, 107, 1, 1);
+    background: var(--color-orange);
+    border: var(--color-orange);
   }
 }
 
@@ -223,19 +225,4 @@
   &:last-child {
     margin-right: 0;
   }
-}
-
-.hdr-hidden {
-  display: none;
-}
-
-.error-msg {
-  font-family: Roboto;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 16px;
-  letter-spacing: 0em;
-  text-align: center;
-  color: rgba(255, 0, 27, 1);
 }

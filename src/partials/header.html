@@ -20,17 +20,21 @@
           </ul>
         </nav>
       </div>
-      
       <form class="search-form" id="search-form">
         <input class="search" type="text" name="query" autocomplete="off" placeholder="Search films" />
         <button class="btn-search" type="submit"></button>
-        <p class="error-msg hdr-hidden">Search result not successful. Enter the correct movie name</p>
       </form>
 
-      <ul class="users-lists hdr-hidden" id="users-lists">
-        <li class="ul-item"><button class="users-lists-button active" id="watched">WATCHED</button></li>
-        <li class="ul-item"><button class="users-lists-button" id="queue">QUEUE</button></li>
-      </ul>
+      <div class="container-lib visually-hidden">
+        <ul class="users-lists list">
+          <li class="ul-item">
+            <button class="users-lists-button" id="watched">WATCHED</button>
+          </li>
+          <li class="ul-item">
+            <button class="users-lists-button" id="queue">QUEUE</button>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </header>
