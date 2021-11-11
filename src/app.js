@@ -1,16 +1,19 @@
 import './sass/main.scss';
+import './js/header';
 import ApiServices from './js/ApiServices.js';
 import cardTemplate from './templates/film-card.hbs';
 import loader from './js/loader';
 import filmsPagination from './js/pagination.js';
 import debounce from 'lodash.debounce';
-import { error } from '@pnotify/core';
 import { filmCardTransformData } from './js/film-card-transform-data';
+import './js/modal';
+import './js/totopbutton.js'
 
 const refs = {
-  searchForm: document.querySelector('.search-form'),
+  searchForm: document.querySelector('#search-form'),
   filmsList: document.querySelector('.js-films'),
-};
+  errorMsg: document.querySelector('#error'),
+  };
 
 const dataApiServices = new ApiServices();
 
@@ -52,13 +55,12 @@ async function onSearch(event) {
 }
 
 function renderMarkup(results) {
-  if (results.length === 0) {
-    throw new error({
-      text: 'Woops! Not Found!',
-      delay: 1500,
-    });
-  }
   loader.show();
+  if (results.length === 0) {
+    refs.errorMsg.classList.remove('hdr-hidden')
+  } else {
+    // refs.errorMsg.classList.add('hdr-hidden')
+  }
   refs.filmsList.innerHTML = cardTemplate(filmCardTransformData(results));
   loader.close();
 }
