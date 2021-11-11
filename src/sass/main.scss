@@ -2,6 +2,7 @@
 @import './base/base';
 @import './base/container';
 @import './base/visually-hidden';
+// @import './base/header';
 
 // layouts
 @import './layouts/header';
@@ -11,6 +12,9 @@
 
 // components
 @import './elements/pagination';
+@import '../../node_modules/basiclightbox/dist/basicLightbox.min.css';
 @import '@pnotify/core/dist/BrightTheme.css';
 @import '@pnotify/core/dist/PNotify.css';
 @import 'tui-pagination/dist/tui-pagination.css';
+@import './elements/backToTopBtn';
+@import './elements/modalDev';

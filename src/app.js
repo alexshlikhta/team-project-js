@@ -2,17 +2,18 @@ import './sass/main.scss';
 import './js/header';
 import ApiServices from './js/ApiServices.js';
 import cardTemplate from './templates/film-card.hbs';
-import '../node_modules/basiclightbox/dist/basicLightbox.min.css';
-import './js/loader';
+import loader from './js/loader';
 import filmsPagination from './js/pagination.js';
 import debounce from 'lodash.debounce';
-import { error } from '@pnotify/core';
 import { filmCardTransformData } from './js/film-card-transform-data';
+import './js/modal';
+import './js/totopbutton.js'
 
-const ref = {
-  searchForm: document.querySelector('.search-form'),
+const refs = {
+  searchForm: document.querySelector('#search-form'),
   filmsList: document.querySelector('.js-films'),
-};
+  errorMsg: document.querySelector('#error'),
+  };
 
 const dataApiServices = new ApiServices();
 
@@ -34,12 +35,12 @@ renderPopularFilms();
 async function onSearch(event) {
   event.preventDefault();
 
-  if (ref.searchForm.elements.query.value === '') {
+  if (refs.searchForm.elements.query.value === '') {
     renderPopularFilms();
   } else {
-    dataApiServices.query = ref.searchForm.elements.query.value;
-    ref.filmsList.innerHTML = '';
-    const dataSearched = await dataApiServices.fetchQueridFilms();
+    dataApiServices.query = refs.searchForm.elements.query.value;
+    refs.filmsList.innerHTML = '';
+    const dataSearched = await dataApiServices.fetchQueriedFilms();
     renderMarkup(dataSearched.results);
 
     let pagOptions = {
@@ -54,13 +55,14 @@ async function onSearch(event) {
 }
 
 function renderMarkup(results) {
+  loader.show();
   if (results.length === 0) {
-    throw new error({
-      text: 'Woops! Not Found!',
-      delay: 1500,
-    });
+    refs.errorMsg.classList.remove('hdr-hidden')
+  } else {
+    // refs.errorMsg.classList.add('hdr-hidden')
   }
-  ref.filmsList.innerHTML = cardTemplate(filmCardTransformData(results));
+  refs.filmsList.innerHTML = cardTemplate(filmCardTransformData(results));
+  loader.close();
 }
 
 function initPagination(pagOptions) {
@@ -71,12 +73,11 @@ function initPagination(pagOptions) {
     if (pagOptions.type === 'popular') {
       pagData = await dataApiServices.fetchPopularFilms();
     } else {
-      pagData = await dataApiServices.fetchQueridFilms();
+      pagData = await dataApiServices.fetchQueriedFilms();
     }
 
     renderMarkup(pagData.results);
   });
 }
 
-ref.searchForm.addEventListener('input', debounce(onSearch, 500));
-
+refs.searchForm.addEventListener('input', debounce(onSearch, 500));

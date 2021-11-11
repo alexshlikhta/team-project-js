@@ -9,6 +9,7 @@ export default class ApiServices {
     this.endPoint = 'search/movie?';
     this.url = '';
     this.query = '';
+    this.movieId = '';
   }
   // get popular films from API DB
   async fetchPopularFilms() {
@@ -20,11 +21,11 @@ export default class ApiServices {
       return error;
     }
   }
-
-  async fetchQueridFilms() {
+  //get searched movies by name(query)
+  async fetchQueriedFilms() {
     try {
       const response = await axios.get(
-        // need to verify request's url
+        // need to verify request's url (url ok)
         `${BASE_URL}${this.endPoint}${API_KEY}&language=en-US&page=${this.page}&query=${this.query}`,
       );
       return response.data;
@@ -41,6 +42,24 @@ export default class ApiServices {
   //     return error;
   //   }
   // }
+  // ============fetch by ID============//
+  async fetchFilmById() {
+    try {
+      const response = await axios.get(
+        `${BASE_URL}movie/${this.movieId}?${API_KEY}&language=en-US`,
+      );
+      return response.data;
+    } catch (error) {
+      return error;
+    }
+  }
+  getMovieId() {
+    return this.movieId;
+  }
+  setMovieId(currentMovieId) {
+    return (this.movieId = currentMovieId);
+  }
+  // =====================================//
   getPage() {
     return this.page;
   }

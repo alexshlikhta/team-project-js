@@ -35,5 +35,3 @@ queueBtn.addEventListener('click', () => {
   queueBtn.classList.add('active');
   watchedBtn.classList.remove('active');
 });
-
-

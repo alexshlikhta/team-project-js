@@ -14,6 +14,10 @@ $bp-mobile: 320px;
 $bp-tablet: 768px;
 $bp-desktop: 1024px;
 
+//variables
+
+$card-set-gap: 30px;
+
 //mixins
 
 @mixin phone {
