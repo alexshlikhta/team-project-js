@@ -89,7 +89,7 @@
 }
 .img__box {
   width: 140px;
-  height: 140px;
+  height: 150px;
   object-fit: cover;
 }
 
@@ -98,7 +98,7 @@
   line-height: 1.17;
   letter-spacing: 0.03em;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   color: #f5f4fa;
 
   @media screen and (max-width: 767px) {
@@ -133,8 +133,8 @@
 .team__name {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -20px;
-  margin-top: -20px;
+  margin-left: -15px;
+  margin-top: -15px;
   align-items: center;
   justify-content: center;
 }
@@ -152,22 +152,21 @@
 
   @media screen and (max-width: 767px) {
     margin-bottom: 30px;
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-top: 15px;
+    margin-left: 15px;
 
     max-width: 140px;
   }
   @media screen and (min-width: 768px) and (max-width: 1199px) {
-    flex-basis: calc(100% / 2 - 20px);
-    margin-top: 20px;
-    margin-left: 20px;
+    flex-basis: calc(100% / 2 - 15px);
+    margin-top: 15px;
+    margin-left: 15px;
     max-width: 140px;
-    flex-wrap: nowrap;
   }
   @media screen and (min-width: 1200px) {
-    flex-basis: calc(100% / 4 - 20px);
-    margin-top: 20px;
-    margin-left: 20px;
+    flex-basis: calc(100% / 4 - 15px);
+    margin-top: 15px;
+    margin-left: 15px;
     max-width: 140px;
   }
   &:hover {
@@ -211,12 +210,13 @@
 }
 
 .team__link {
+  width: 35px;
+  height: 35px;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
-  width: 44px;
-  height: 44px;
   border-radius: 50%;
   background-color: var(--color-grey);
 
