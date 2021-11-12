@@ -9,8 +9,18 @@
   left: 20px;
 
   width: 280px;
-  min-height: 958px;
+  height: 960px;
   background-color: var(--color-white);
+
+  @include tablet {
+    width: 620px;
+    height: 560px;
+  }
+
+  @include desktop {
+    width: 880px;
+    height: 570px;
+  }
 }
 .modal {
   &__close-btn {
@@ -20,6 +30,16 @@
 
     width: 30px;
     height: 30px;
+
+    @include tablet {
+      left: 598px;
+      top: 30px;
+    }
+
+    @include desktop {
+      left: 860px;
+      top: 30px;
+    }
 
     // background-color: transparent;
     // border-color: transparent;
@@ -36,11 +56,27 @@
   &__image {
     position: absolute;
     left: 40px;
-    top: 68px;
+    top: 70px;
 
     width: 240px;
-    height: 356.57px;
+    height: 360px;
     border-radius: 5px;
+
+    @include tablet {
+      left: 50px;
+      top: 75px;
+
+      width: 265px;
+      height: 375px;
+    }
+
+    @include desktop {
+      left: 50px;
+      top: 70px;
+
+      width: 400px;
+      height: 480px;
+    }
   }
 }
 
@@ -50,15 +86,36 @@
   top: 455px;
 
   width: 240px;
+
+  @include tablet {
+    left: 350px;
+    top: 75px;
+  }
+
+  @include desktop {
+    left: 490px;
+    top: 70px;
+
+    width: 370px;
+  }
   &__title {
     font-weight: 500;
     font-size: 20px;
     margin-bottom: 20px;
+    text-transform: uppercase;
+
+    @include desktop {
+      font-size: 30px;
+    }
   }
   &__table {
   }
   &__table-link:not(:last-child) {
     margin-bottom: 12px;
+
+    @include desktop {
+      margin-bottom: 20px;
+    }
   }
   &__item {
     margin-right: 25px;
@@ -66,11 +123,20 @@
     font-size: 12px;
 
     color: var(--color-grey-1);
+
+    @include desktop {
+      margin-right: 90px;
+      font-size: 16px;
+    }
   }
   &__info {
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
+
+    @include desktop {
+      font-size: 16px;
+    }
   }
   &__vote-average {
     background: var(--color-orange);
@@ -104,9 +170,13 @@
 }
 .storage {
   display: flex;
-  justify-content: space-between;
 
-  &__item {
+  &__item:not(:last-child) {
+    margin-right: 20px;
+
+    @include desktop {
+      margin-right: 20px;
+    }
   }
   &__label {
     background-color: transparent;
