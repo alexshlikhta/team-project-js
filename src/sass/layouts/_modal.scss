@@ -27,9 +27,18 @@
     position: absolute;
     left: 260px;
     top: 30px;
-
     width: 30px;
     height: 30px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    background-image: url('../images/close.svg');
+    background-position: center;
+    background-repeat: no-repeat;
 
     @include tablet {
       left: 598px;
@@ -40,13 +49,6 @@
       left: 860px;
       top: 30px;
     }
-
-    // background-color: transparent;
-    // border-color: transparent;
-    // border: none;
-    // padding: 0;
-  }
-  &__icon-close {
   }
   &__card {
   }
@@ -140,11 +142,13 @@
   }
   &__vote-average {
     background: var(--color-orange);
+    padding: 0 10px;
     border-radius: 5px;
     color: var(--color-white);
   }
   &__vote-count {
     background: var(--color-grey-1);
+    padding: 0 10px;
     border-radius: 5px;
     color: var(--color-black);
   }
