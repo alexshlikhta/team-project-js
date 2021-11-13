@@ -1,14 +1,13 @@
+const upButton = document.querySelector('#upbutton');
 
-const upButton = document.querySelector('#upbutton')
-
-upButton.addEventListener('click', smoothJumpUp)
+upButton.addEventListener('click', smoothJumpUp);
 
 function smoothJumpUp() {
   if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
     window.scrollBy(0, -50);
-    setTimeout(smoothJumpUp, 15);
+    setTimeout(smoothJumpUp, 5);
   }
-};
+}
 
 window.onscroll = function () {
   let scrolled = window.pageYOffset || document.documentElement.scrollTop;

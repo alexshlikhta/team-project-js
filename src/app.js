@@ -9,6 +9,7 @@ import { filmCardTransformData } from './js/film-card-transform-data';
 import './js/modal';
 import './js/modalDev';
 import './js/totopbutton.js';
+import './js/animationSvg';
 
 const refs = {
   searchForm: document.querySelector('#search-form'),

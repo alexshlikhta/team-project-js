@@ -1,27 +1,47 @@
 <header class="header header-home">
   <div class="header__container">
     <div class="container">
-      <div class="wrap">  
-        <img class="film-icon" src="./images/film.svg" alt="film icon" />
+      <div class="wrap">
+        <svg
+          width="24"
+          height="24"
+          fill="none"
+          id="filmoptim"
+          xmlns="http://www.w3.org/2000/svg"
+          data-llp-composed="true"
+          class="lazy-line-painter header__logo-icon"
+        >
+          <path
+            d="M19.82 2H4.18A2.18 2.18 0 002 4.18v15.64A2.18 2.18 0 004.18 22h15.64A2.18 2.18 0 0022 19.82V4.18A2.18 2.18 0 0019.82 2zM7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5"
+            data-llp-id="filmoptim-0"
+            data-llp-duration="2000"
+            data-llp-delay="0"
+            fill-opacity="0"
+            style="stroke-linecap: square"
+          />
+        </svg>
+        <!-- <img class="film-icon" src="./images/film.svg" alt="film icon" /> -->
         <h1 class="logo visually-hidden">Filmoteka</h1>
         <a class="logo-link link" id="logo" href="./index.html">Filmoteka</a>
         <nav class="menu">
           <ul class="menu__list list">
             <li class="menu__item">
-              <button class="menu__btn btn-style current" id="home" type="button">
-                Home
-              </button>
+              <button class="menu__btn btn-style current" id="home" type="button">Home</button>
             </li>
             <li class="menu__item">
-              <button class="menu__btn btn-style" id="my-library" type="button">
-                My library
-              </button>
+              <button class="menu__btn btn-style" id="my-library" type="button">My library</button>
             </li>
           </ul>
         </nav>
       </div>
       <form class="search-form" id="search-form">
-        <input class="search" type="text" name="query" autocomplete="off" placeholder="Search films" />
+        <input
+          class="search"
+          type="text"
+          name="query"
+          autocomplete="off"
+          placeholder="Search films"
+        />
         <button class="btn-search" type="submit"></button>
       </form>
 
