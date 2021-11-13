@@ -1,41 +1,35 @@
-.basicLightbox {
-  overflow: auto;
-  height: 100%;
-}
+// .basicLightbox {
+//   overflow: auto;
+//   height: 100%;
+// }
 
-.backdrop {
-  position: relative;
-  top: 220px;
-
-  width: 280px;
-  height: 960px;
-  background-color: var(--color-white);
-
-  @include tablet {
-    top: auto;
-    top: 20px;
-    width: 620px;
-    height: 560px;
-  }
-
-  @include desktop {
-    width: 880px;
-    height: 570px;
-  }
-}
 .modal {
+  &__container {
+    position: relative;
+    background-color: #fff;
+    padding: 50px 20px;
+    border-radius: 5px;
+
+    @include tablet {
+      display: flex;
+    }
+
+    @include tablet {
+      padding: 50px 30px;
+    }
+  }
+
   &__close-btn {
     position: absolute;
     left: 240px;
-    top: 230px;
+    top: 10px;
     width: 30px;
     height: 30px;
     padding: 0;
     margin: 0;
     border: none;
-    border-radius: 50%;
+    border-radius: 50px;
     background-color: transparent;
-    color: var(--color-white);
     cursor: pointer;
     transition: background-color 500ms linear, transform 500ms ease-in-out;
     background-image: url('../images/close.svg');
@@ -49,60 +43,50 @@
     }
 
     @include tablet {
-      left: 580px;
-      top: 30px;
+      left: 550px;
     }
 
     @include desktop {
-      left: 840px;
-      top: 30px;
+      left: 830px;
     }
   }
 
   &__item-img {
-    padding-bottom: 30px;
-  }
-  &__image {
-    position: absolute;
-    left: 20px;
-    top: 270px;
-
-    width: 240px;
-    height: 360px;
+    max-width: 240px;
+    max-height: 360px;
+    overflow: hidden;
     border-radius: 5px;
 
-    @include tablet {
-      left: 30px;
-      top: 70px;
+    margin-bottom: 30px;
 
-      width: 265px;
-      height: 375px;
+    @include tablet {
+      max-width: 260px;
+      max-height: 370px;
+      margin-right: 30px;
     }
 
     @include desktop {
-      left: 30px;
-
-      width: 400px;
-      height: 480px;
+      max-width: 400px;
+      max-height: 480px;
     }
+  }
+  &__image {
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
   }
 }
 
 .card {
-  position: absolute;
-  left: 20px;
-  top: 655px;
-
   width: 240px;
 
   @include tablet {
-    left: 330px;
-    top: 70px;
+    width: 260px;
   }
 
   @include desktop {
-    left: 470px;
-    width: 370px;
+    width: 400px;
   }
   &__title {
     font-weight: 500;
@@ -171,35 +155,41 @@
     margin-bottom: 40px;
   }
 }
-
-.storage {
-  display: flex;
-
+.modal-button {
+  &__list {
+    display: flex;
+  }
   &__item:not(:last-child) {
     margin-right: 20px;
-
-    @include desktop {
-      margin-right: 20px;
-    }
   }
-  &__label {
+  &__btn {
+    width: 100px;
+    height: 44px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 5px;
     background-color: transparent;
-    color: var(--color-black);
-    cursor: pointer;
-    padding: 12px 6px;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
-    border: 1px solid #000;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    align-items: center;
+    text-align: center;
     text-transform: uppercase;
-  }
-  &__input {
-  }
 
-  .visually-hidden {
-  }
-  .storage__btn {
+    @include tablet {
+      width: 120px;
+    }
+
+    @include desktop {
+      width: 140px;
+    }
+
+    &:hover,
+    &:focus {
+      border: none;
+      background: var(--color-orange);
+    }
   }
 }
