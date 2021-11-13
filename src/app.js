@@ -13,6 +13,7 @@ import './js/animationSvg';
 
 const refs = {
   searchForm: document.querySelector('#search-form'),
+  searchButton: document.querySelector('.btn-search'),
   filmsList: document.querySelector('.js-films'),
   errorMsg: document.querySelector('#error'),
   votesSpan: document.getElementsByClassName('films__votes'),
@@ -61,9 +62,9 @@ function renderMarkup(results, { showVotes }) {
   loader.show();
 
   if (results.length === 0) {
-    refs.errorMsg.classList.remove('hdr-hidden');
+    refs.errorMsg.classList.remove('visually-hidden');
   } else {
-    // refs.errorMsg.classList.add('hdr-hidden')
+    refs.errorMsg.classList.add('visually-hidden')
   }
 
   refs.filmsList.innerHTML = cardTemplate(filmCardTransformData(results));
@@ -96,3 +97,4 @@ function initPagination(pagOptions) {
 }
 
 refs.searchForm.addEventListener('input', debounce(onSearch, 500));
+refs.searchButton.addEventListener('click', onSearch);
