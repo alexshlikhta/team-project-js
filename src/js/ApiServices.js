@@ -33,7 +33,6 @@ export default class ApiServices {
       return error;
     }
   }
-
   // ============fetch by ID============//
   async fetchFilmById() {
     try {
@@ -56,6 +55,6 @@ export default class ApiServices {
     return this.page;
   }
   setPage(page) {
-    return (this.page = page);
+    this.page = page;
   }
 }

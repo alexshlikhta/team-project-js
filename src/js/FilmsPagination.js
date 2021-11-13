@@ -1,5 +1,6 @@
 import Pagination from 'tui-pagination';
 import ApiServices from './ApiServices';
+import RenderMarkup from './RenderMarkup';
 
 const ref = {
   paginationBox: document.getElementById('tui-pagination'),
@@ -8,8 +9,9 @@ const ref = {
 export default class FilmsPagination {
   constructor() {
     this.apiServices = new ApiServices();
+    this.renderMarkup = new RenderMarkup();
   }
-  init(options) {
+  async init(options, popular) {
     const paginationOptions = {
       totalItems: options.total_results,
       visiblePages: 5,
@@ -31,18 +33,18 @@ export default class FilmsPagination {
     };
 
     const filmsPagination = new Pagination(ref.paginationBox, paginationOptions);
+    let pagData = null;
+
+    if (popular === 'popular') {
+      pagData = await this.apiServices.fetchPopularFilms();
+    } else {
+      pagData = await this.apiServices.fetchQueriedFilms();
+      this.renderMarkup.renderMarkup(pagData, { showVotes: false });
+    }
 
     filmsPagination.on('beforeMove', async event => {
       this.apiServices.setPage(event.page);
-      let pagData = null;
-
-      if (paginationOptions.type === 'popular') {
-        pagData = await this.apiServices.fetchPopularFilms();
-      } else {
-        pagData = await this.apiServices.fetchQueriedFilms();
-      }
-
-      renderMarkup(pagData.results, { showVotes: false });
+      this.renderMarkup.renderPopularFilms();
     });
   }
 }
