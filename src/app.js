@@ -12,6 +12,7 @@ import ApiServices from './js/ApiServices';
 
 const refs = {
   searchForm: document.querySelector('#search-form'),
+  searchButton: document.querySelector('.btn-search'),
   filmsList: document.querySelector('.js-films'),
 };
 

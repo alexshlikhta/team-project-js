@@ -1,71 +1,60 @@
-<div class='backdrop'>
 </div class="modal">
-<button type="button" class="modal__close-btn" data-action="modal-close-icon">
-</button>
-<div class='modal__card' data-action='{{id}}'>
-    <div class='modal__item-img'>
-        <img class='modal__image' src='https://image.tmdb.org/t/p/w500{{poster_path}}' alt='{{title}}'
-            onerror="this.onerror=null;this.src='https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-';" />
-    </div>
-
-    <div class='card'>
-        <h2 class='card__title'>{{title}}</h2>
-        <table class="card__table">
-            <tr>
-                <td>
-                    <p class='card__item'>Vote / Votes</p>
-                </td>
-                <td>
-                    <p><span class='card__info card__vote-average'>{{vote_average}}</span> / <span></span><span
-                            class="card__info card__vote-count">
+    <div class="modal__container">
+        <button type="button" class="modal__close-btn" data-action="modal-close-icon"></button>
+        <div class='modal__item-img'>
+            <img class='modal__image' src='https://image.tmdb.org/t/p/w500{{poster_path}}' alt='{{title}}'/>
+        </div>
+    
+        <div class='card'>
+            <h2 class='card__title'>{{title}}</h2>
+            <table class="card__table">
+                <tr>
+                    <td>
+                        <p class='card__item'>Vote / Votes</p>
+                    </td>
+                    <td>
+                        <p><span class='card__info card__vote-average'>{{vote_average}}</span> / <span></span><span class="card__info card__vote-count">
                             {{vote_count}}</span></p>
-                </td>
-            </tr>
-            <tr>
-                <td class="card__table-link">
-                    <p class='card__item'>Popularity</p>
-                </td>
-                <td class="card__table-link">
-                    <p class='card__info'>{{popularity}}</p>
-                </td>
-            </tr>
-            <tr>
-                <td class="card__table-link">
-                    <p class='card__item'>Original Title</p>
-                </td>
-                <td class="card__table-link">
-                    <p class='card__info card__original-title'>{{original_title}}</p>
-                </td>
-            </tr>
-            <tr>
-                <td class="card__table-link">
-                    <p class='card__item'>Genre</p>
-                </td>
-                <td class="card__table-link">{{#each genres}}
-                    <p class='card__info'>{{this.name}}</p>
-                    {{/each}}
-                </td>
-            </tr>
-        </table>
-        <p class='card__about'>About</p>
-        <p class='card__description'>{{overview}}</p>
-        <div class='modal-button'>
-            <ul class='storage'>
-                <li class='storage__item'>
-                    <label class='storage__label'>
-                        <input type='checkbox' value='Watched' class='storage__input visually-hidden' />
-                        <span class='storage__btn' data-film-id='{{id}}' id='js-watched'>ADD TO WATCHED</span>
-                    </label>
-                </li>
-                <li class='storage__item'>
-                    <label class='storage__label'>
-                        <input type='checkbox' value='Queue' class='storage__input visually-hidden' />
-                        <span class='storage__btn' data-film-id='{{id}}' id='js-queue'>ADD TO QUEUE</span>
-                    </label>
-                </li>
-            </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="card__table-link">
+                        <p class='card__item'>Popularity</p>
+                    </td>
+                    <td class="card__table-link">
+                        <p class='card__info'>{{popularity}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="card__table-link">
+                        <p class='card__item'>Original Title</p>
+                    </td>
+                    <td class="card__table-link">
+                        <p class='card__info card__original-title'>{{original_title}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="card__table-link">
+                        <p class='card__item'>Genre</p>
+                    </td>
+                    <td class="card__table-link">{{#each genres}}
+                        <p class='card__info'>{{this.name}}</p>
+                        {{/each}}
+                    </td>
+                </tr>
+            </table>
+            <p class='card__about'>About</p>
+            <p class='card__description'>{{overview}}</p>
+            <div class='modal-button'>
+                <ul class='modal-button__list'>
+                    <li class="modal-button__item">
+                        <button class="modal-button__btn" type="button">add to Watched</button>
+                    </li>
+                    <li class="modal-button__item">
+                        <button class="modal-button__btn" type="button">add to queue</button>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
-</div>
 </div>
