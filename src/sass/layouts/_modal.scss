@@ -34,11 +34,18 @@
     border: none;
     border-radius: 50%;
     background-color: transparent;
-    color: #fff;
+    color: var(--color-white);
     cursor: pointer;
+    transition: background-color 500ms linear, transform 500ms ease-in-out;
     background-image: url('../images/close.svg');
     background-position: center;
     background-repeat: no-repeat;
+
+    &:hover,
+    &:focus {
+      background-color: var(--color-orange);
+      transform: rotate(180deg);
+    }
 
     @include tablet {
       left: 598px;
@@ -50,8 +57,7 @@
       top: 30px;
     }
   }
-  &__card {
-  }
+
   &__item-img {
     padding-bottom: 30px;
   }
@@ -109,8 +115,6 @@
     @include desktop {
       font-size: 30px;
     }
-  }
-  &__table {
   }
   &__table-link:not(:last-child) {
     margin-bottom: 12px;
@@ -170,8 +174,6 @@
   }
 }
 
-.modal-button {
-}
 .storage {
   display: flex;
 
