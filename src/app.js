@@ -3,7 +3,7 @@ import './js/header';
 import ApiServices from './js/ApiServices.js';
 import cardTemplate from './templates/film-card.hbs';
 import loader from './js/loader';
-import filmsPagination from './js/pagination.js';
+import FilmsPagination from './js/FilmsPagination.js';
 import debounce from 'lodash.debounce';
 import { filmCardTransformData } from './js/film-card-transform-data';
 import './js/modal';
@@ -19,6 +19,7 @@ const refs = {
 };
 
 const dataApiServices = new ApiServices();
+const filmsPagination = new FilmsPagination();
 
 async function renderPopularFilms() {
   const dataPopular = await dataApiServices.fetchPopularFilms();
@@ -31,7 +32,7 @@ async function renderPopularFilms() {
     total_results: dataPopular.total_results,
   };
 
-  initPagination(pagOptions);
+  filmsPagination.init(pagOptions);
 }
 renderPopularFilms();
 
@@ -53,7 +54,7 @@ async function onSearch(event) {
       total_results: dataSearched.total_results,
     };
 
-    initPagination(pagOptions);
+    filmsPagination.init(pagOptions);
   }
 }
 
@@ -78,21 +79,6 @@ function renderMarkup(results, { showVotes }) {
   }
 
   loader.close();
-}
-
-function initPagination(pagOptions) {
-  filmsPagination(pagOptions).on('beforeMove', async event => {
-    dataApiServices.setPage(event.page);
-    let pagData = null;
-
-    if (pagOptions.type === 'popular') {
-      pagData = await dataApiServices.fetchPopularFilms();
-    } else {
-      pagData = await dataApiServices.fetchQueriedFilms();
-    }
-
-    renderMarkup(pagData.results, { showVotes: false });
-  });
 }
 
 refs.searchForm.addEventListener('input', debounce(onSearch, 500));
