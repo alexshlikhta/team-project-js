@@ -1,6 +1,5 @@
 import ApiServices from './ApiServices.js';
 import cardTemplate from '../templates/film-card.hbs';
-import { filmCardTransformData } from './film-card-transform-data';
 import loader from './loader.js';
 
 const refs = {
@@ -23,7 +22,7 @@ export default class RenderMarkup {
       // refs.errorMsg.classList.add('hdr-hidden')
     }
 
-    refs.filmsList.innerHTML = cardTemplate(filmCardTransformData(results));
+    refs.filmsList.innerHTML = cardTemplate(this.apiServices.transformData(results));
 
     if (showVotes) {
       for (const elem of refs.votesSpan) {
@@ -42,7 +41,7 @@ export default class RenderMarkup {
     loader.show();
 
     const dataPopular = await this.apiServices.fetchPopularFilms();
-    refs.filmsList.innerHTML = cardTemplate(filmCardTransformData(dataPopular.results));
+    refs.filmsList.innerHTML = cardTemplate(this.apiServices.transformData(dataPopular.results));
 
     let pagOptions = {
       type: 'popular',
