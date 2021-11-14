@@ -1,6 +1,7 @@
 import modalCard from '../templates/modalCard.hbs';
 import * as basicLightbox from 'basiclightbox';
 import ApiServices from './ApiServices';
+import { onModalButtons, clearListener } from './buttonsHend.js'
 
 const bodyRef = document.querySelector('.js-films');
 
@@ -21,7 +22,7 @@ async function openLightbox(event) {
   const markup = modalCard(dataFilmById);
   const modal = basicLightbox.create(markup);
   modal.show();
-
+  onModalButtons();
   // =========close by clicking on the cross==============//
   const closeBtnRef = document.querySelector('[data-action="modal-close-icon"]');
   closeBtnRef.addEventListener('click', () => {
@@ -35,6 +36,7 @@ async function openLightbox(event) {
     if (event.code === 'Escape') {
       modal.close();
       window.removeEventListener('keydown', closeModalHandler);
+      clearListener();
     }
   }
 }
