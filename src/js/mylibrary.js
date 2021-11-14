@@ -8,8 +8,13 @@ const refs = {
     filmsList: document.querySelector('.js-films'),
 }
 
+
 const LocalService = new LocalService();
 const api = new ApiServices();
+
+
+
+
 
 // function onWatched() {
 //     refs.filmsList.innerHTML = '';
