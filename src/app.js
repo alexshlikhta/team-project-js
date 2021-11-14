@@ -10,11 +10,14 @@ import './js/animationSvg';
 import RenderMarkup from './js/RenderMarkup';
 import FilmsPagination from './js/FilmsPagination.js';
 import ApiServices from './js/ApiServices';
+import { onClickWatched, onClickQueue } from './js/mylibrary';
 
 const refs = {
   searchForm: document.querySelector('#search-form'),
   searchButton: document.querySelector('.btn-search'),
   filmsList: document.querySelector('.js-films'),
+  watchedBtn: document.querySelector('#watched'),
+  queueBtn: document.querySelector('#queue'),
 };
 
 const apiServices = new ApiServices();
@@ -27,6 +30,8 @@ async function init() {
 }
 init();
 
+refs.watchedBtn.addEventListener('click', onClickWatched);
+refs.queueBtn.addEventListener('click', onClickQueue);
 // async function onSearch(event) {
 //   event.preventDefault();
 
