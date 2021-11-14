@@ -7,7 +7,8 @@ import filmsPagination from './js/pagination.js';
 import debounce from 'lodash.debounce';
 import { filmCardTransformData } from './js/film-card-transform-data';
 import './js/modal';
-import './js/modalDev';
+// import './js/modalDev';
+import './js/modal-dev-v2'
 import './js/totopbutton.js';
 
 const refs = {
