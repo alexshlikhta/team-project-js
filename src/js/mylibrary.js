@@ -4,8 +4,8 @@ import { load, save, remove, keys } from './localStorage';
 import RenderMarkup from './RenderMarkup';
 
 const refs = {
-  watchedBtn: document.querySelector('#js-watched'),
-  queueBtn: document.querySelector('#js-queue'),
+  //   watchedBtn: document.querySelector('#js-watched'),
+  //   queueBtn: document.querySelector('#js-queue'),
   filmsList: document.querySelector('.js-films'),
 };
 
