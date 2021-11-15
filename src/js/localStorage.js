@@ -1,17 +1,17 @@
 // export default class LocalService {
 //     // constructor() {
-//     //     // 
+//     //     //
 //     // }
 // async onGet(key) {
 //     try {
 //       let clearData = localStorage.getItem(key);
-  
+
 //       return (clearData = JSON.parse(clearData) || undefined);
 //     } catch (error) {
 //       console.error('getItem error: ', error);
 //     }
 //   };
- 
+
 //   async onSet(key, value) {
 //     try {
 //       const clearData = JSON.stringify(value);
@@ -20,7 +20,7 @@
 //       console.error('setItem error: ', error);
 //     }
 //   };
- 
+
 //   async onRemove(key) {
 //     try {
 //       localStorage.removeItem(key);
@@ -36,10 +36,10 @@ const keys = {
   QUEUE: 'Queue',
 };
 
-const load = key => {
+export const load = key => {
   try {
     const localData = localStorage.getItem(key);
-    localStorage.getItem('last-tab')
+    localStorage.getItem('last-tab');
 
     return localData === null ? undefined : JSON.parse(localData);
   } catch (err) {
@@ -47,7 +47,7 @@ const load = key => {
   }
 };
 
-const save = (key, value) => {
+export const save = (key, value) => {
   try {
     const localData = JSON.stringify(value);
     localStorage.setItem(key, localData);
@@ -56,7 +56,7 @@ const save = (key, value) => {
   }
 };
 
-const remove = (key, value) => {
+export const remove = (key, value) => {
   const localData = load(key);
   localData.splice(localData.indexOf(value), 1);
   save(key, localData);
