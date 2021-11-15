@@ -22,6 +22,7 @@ body.dark-theme {
 
 .svg-switch {
   margin-right: 5px;
+  //   padding-top: 3px;
 }
 
 .theme-switch__icon {
@@ -110,6 +111,6 @@ footer.dark-theme,
   color: var(--color-grey-3);
 }
 
-.films__name.dark-theme {
+.dark-theme .films__name {
   color: var(--color-grey);
 }
