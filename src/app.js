@@ -9,8 +9,8 @@ import './js/animationSvg';
 import RenderMarkup from './js/RenderMarkup';
 import FilmsPagination from './js/FilmsPagination.js';
 import ApiServices from './js/ApiServices';
-import Library from './js/mylibrary';
-import LocalService from './js/localStorage';
+import Library from './js/Library';
+import LocalService from './js/LocalStorage';
 
 const refs = {
   searchForm: document.querySelector('#search-form'),
@@ -30,7 +30,7 @@ const localService = new LocalService();
 
 async function init() {
   let result = await apiServices.fetchPopularFilms();
-  localService.setPaginationPage(1);
+  localService.clean();
   renderMarkup.renderPopularFilms();
   localService.setPaginationType('popular');
   localService.setLocalTotalPages(result.total_results);
@@ -56,7 +56,6 @@ async function onSearch(event) {
     renderMarkup.renderMarkup(dataSearched.results, { showVotes: false });
     localService.setPaginationType('query');
     localService.setLocalTotalPages(dataSearched.total_results);
-    // localService.setLocalTotalPages(dataSearched);
     filmsPagination.init('query', refs.searchForm.elements.query.value);
   }
 }

@@ -1,5 +1,5 @@
 import ApiServices from './ApiServices.js';
-import LocalService from './localStorage';
+import LocalService from './LocalStorage';
 import RenderMarkup from './RenderMarkup';
 import FilmsPagination from './FilmsPagination.js';
 
@@ -43,7 +43,8 @@ export default class library {
       }
 
       this.localService.setLocalTotalPages(counter);
-      this.filmsPagination.init();
+      this.localService.setPaginationPage(1);
+      this.filmsPagination.init('library');
     }
   };
 

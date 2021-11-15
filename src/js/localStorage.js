@@ -27,8 +27,14 @@ export default class LocalService {
     this.save(key, localData);
   };
 
+  clean() {
+    localStorage.setItem('total-pages', 1);
+    localStorage.setItem('pagination-page', 1);
+    localStorage.getItem('pagination-type', '');
+  }
+
   setLocalTotalPages(number) {
-    localStorage.setItem('total-pages', number);
+    localStorage.setItem('total-pages', Math.round(number / 20));
   }
 
   getLocalTotalPages() {
