@@ -67,7 +67,6 @@ export default class ApiServices {
   }
 
   transformData(data) {
-    console.log(data);
     let dataToMap;
 
     if (data.results) {

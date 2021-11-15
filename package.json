@@ -35,6 +35,8 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
-    "lazy-line-painter": "^1.9.6"
-  }
+    "lazy-line-painter": "^1.9.6",
+    "parcel-plugin-asset-copier": "^1.1.0"
+  },
+  "assetsPath": "src/images"
 }

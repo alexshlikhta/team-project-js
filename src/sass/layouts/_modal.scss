@@ -1,8 +1,3 @@
-// .basicLightbox {
-//   overflow: auto;
-//   height: 100%;
-// }
-
 .modal {
   &__container {
     position: relative;
@@ -56,7 +51,6 @@
     max-height: 360px;
     overflow: hidden;
     border-radius: 5px;
-
     margin-bottom: 30px;
 
     @include tablet {
@@ -79,15 +73,6 @@
 }
 
 .card {
-  width: 240px;
-
-  @include tablet {
-    width: 260px;
-  }
-
-  @include desktop {
-    width: 400px;
-  }
   &__title {
     font-weight: 500;
     font-size: 20px;

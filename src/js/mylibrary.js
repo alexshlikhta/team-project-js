@@ -13,12 +13,17 @@ const refs = {
 const api = new ApiServices();
 const renderMarkup = new RenderMarkup();
 
+export const onClickMyLibrary = function () {
+  onClickWatched();
+}
+
 export const onClickWatched = function () {
   refs.filmsList.innerHTML = '';
   const localData = load('Watched');
 
   if (!localData || localData.length === 0) {
     console.log('no fils added yet');
+    refs.filmsList.innerHTML = '<li class="card__title"><p>Your watched list is empty! Please add some films!</p></li>';
   } else {
     const results = [];
     for (let id of localData) {
@@ -38,6 +43,7 @@ export const onClickQueue = function () {
 
   if (!localData || localData.length === 0) {
     console.log('no fils added yet');
+    refs.filmsList.innerHTML = '<li class="card__title"><p>Your queue list is empty! Please add some films!</p></li>';
   } else {
     const results = [];
     for (let id of localData) {
@@ -51,6 +57,4 @@ export const onClickQueue = function () {
   }
 };
 
-// function onQueue() { }
 
-//=====далі буду писати з іншого місця тому сейвлю все через коміт...

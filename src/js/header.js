@@ -26,10 +26,11 @@ function onClickHome() {
 function onClickMyLibrary() {
   myLibraryBtn.classList.add('current');
   homeBtn.classList.remove('current');
-
+  watchedBtn.classList.add('active');
   searchForm.classList.add('visually-hidden');
   header.classList.add('library-page');
   containerLib.classList.remove('visually-hidden');
+  
 }
 
 function onClickWatched() {

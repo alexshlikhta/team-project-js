@@ -1,7 +1,7 @@
 import modalCard from '../templates/modalCard.hbs';
 import * as basicLightbox from 'basiclightbox';
 import ApiServices from './ApiServices';
-import { onModalButtons, clearListener } from './buttonsHend.js'
+import { onModalButtons, clearListener } from './ModalButtons.js'
 
 const bodyRef = document.querySelector('.js-films');
 

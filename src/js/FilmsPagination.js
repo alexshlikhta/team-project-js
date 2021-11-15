@@ -36,7 +36,6 @@ export default class FilmsPagination {
 
     filmsPagination.on('afterMove', async event => {
       this.apiServices.page = event.page;
-      // this.apiServices.query = event.page;
       let pagData;
 
       if (type === 'popular') {
