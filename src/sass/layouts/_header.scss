@@ -35,7 +35,9 @@
     }
   }
 }
-
+.header__logo-icon{
+  margin-right: 10px;
+}
 .wrap {
   display: flex;
   align-items: baseline;
@@ -73,7 +75,9 @@
     color: var(--color-white);
   }
 }
-
+.menu{
+  margin-left: auto;
+}
 .menu__list {
   display: flex;
   justify-content: center;

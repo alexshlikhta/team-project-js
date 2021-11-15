@@ -8,8 +8,6 @@ export default class LocalService {
   load = key => {
     try {
       const localData = localStorage.getItem(key);
-      localStorage.getItem('last-tab');
-
       return localData === null ? undefined : JSON.parse(localData);
     } catch (err) {
       console.error('Get error: ', err);
