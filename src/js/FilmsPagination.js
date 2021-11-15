@@ -11,7 +11,7 @@ export default class FilmsPagination {
     this.apiServices = new ApiServices();
     this.renderMarkup = new RenderMarkup();
   }
-  async init(options, type) {
+  async init(options, type, query) {
     const paginationOptions = {
       totalItems: options.total_results,
       visiblePages: 5,
@@ -34,8 +34,11 @@ export default class FilmsPagination {
 
     const filmsPagination = new Pagination(ref.paginationBox, paginationOptions);
 
-    filmsPagination.on('afterMove', async event => {
+    filmsPagination.on('afterMove', async event =>
+    {
+      //@alex need ask about it shit
       this.apiServices.page = event.page;
+      this.apiServices.query = query;
       let pagData;
 
       if (type === 'popular') {

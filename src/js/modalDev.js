@@ -1,40 +1,34 @@
-// (() => {
-//   const refs = {
-//     openModalBtn: document.querySelector('[data-modal-open]'),
-//     closeModalBtn: document.querySelector('[data-modal-close]'),
-//     modal: document.querySelector('[data-modal]'),
-//     backToTopBtn: document.querySelector('#upbutton'),
-//   };
+import devListMarkup from '../templates/modalDevMarkup.hbs';
 
-//   window.addEventListener('keydown', onEscKeyPress);
-//   refs.modal.addEventListener('click', onCloseModalOverlayClick);
-//   refs.openModalBtn.addEventListener('click', toggleModal);
-//   refs.closeModalBtn.addEventListener('click', toggleModal);
+import * as basicLightbox from 'basiclightbox';
 
-//   function toggleModal() {
-//     document.body.classList.toggle('modal-open');
-//     refs.modal.classList.toggle('is-hidden');
-//     window.addEventListener('keydown', onEscKeyPress);
-//     document.body.classList.add('stop-scrolling');
-//     refs.backToTopBtn.style.display = 'none';
-//   }
+const devModalBtn = document.getElementById('open-dev-modal');
+// const devListMarkup = document.getElementById('modal-devs')
 
-//   function onCloseModalOverlayClick(e) {
-//     if (e.currentTarget === e.target) {
-//       onCloseModal();
-//     }
-//   }
 
-//   function onEscKeyPress(e) {
-//     if (e.code === 'Escape') {
-//       onCloseModal();
-//     }
-//   }
+devModalBtn.addEventListener('click', openDevModal);
 
-//   function onCloseModal() {
-//     window.removeEventListener('keydown', onEscKeyPress);
-//     document.body.classList.toggle('modal-close');
-//     refs.modal.classList.toggle('is-hidden');
-//     document.body.classList.remove('stop-scrolling');
-//   }
-// })();
+function openDevModal(event) {
+    event.preventDefault();
+
+    const devMarkup = devListMarkup();
+    const modalDevMarkup = basicLightbox.create(devMarkup);
+
+    modalDevMarkup.show();
+    window.addEventListener('keydown', closeModalHandler);
+
+    function closeModalHandler(event) {
+        if (event.code === 'Escape') {
+            modalDevMarkup.close();
+            window.removeEventListener('keydown', closeModalHandler);
+        }
+    }
+
+    const closeDevModalBtn = document.getElementById('modal-devs__close-btn');
+        closeDevModalBtn.addEventListener('click', onCloseModal);
+        function onCloseModal() {
+        return modalDevMarkup.close();
+    }
+    
+}
+

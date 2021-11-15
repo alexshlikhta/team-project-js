@@ -2,7 +2,6 @@ import './sass/main.scss';
 import './js/header';
 import debounce from 'lodash.debounce';
 import './js/modal';
-import './js/modal-dev-v2'
 import './js/modalDev';
 import './js/totopbutton.js';
 import './js/animationSvg';
@@ -10,7 +9,7 @@ import './js/animationSvg';
 import RenderMarkup from './js/RenderMarkup';
 import FilmsPagination from './js/FilmsPagination.js';
 import ApiServices from './js/ApiServices';
-import { onClickWatched, onClickQueue, onClickMyLibrary } from './js/mylibrary';
+import Library from './js/mylibrary';
 
 const refs = {
   searchForm: document.querySelector('#search-form'),
@@ -25,6 +24,7 @@ const refs = {
 const apiServices = new ApiServices();
 const renderMarkup = new RenderMarkup();
 const filmsPagination = new FilmsPagination();
+const library = new Library();
 
 async function init() {
   renderMarkup.renderPopularFilms();
@@ -33,9 +33,9 @@ async function init() {
 init();
 
 refs.homeBtn.addEventListener('click', init);
-refs.mylibrary.addEventListener('click', onClickMyLibrary);
-refs.watchedBtn.addEventListener('click', onClickWatched);
-refs.queueBtn.addEventListener('click', onClickQueue);
+refs.mylibrary.addEventListener('click', library.onClickMyLibrary);
+refs.watchedBtn.addEventListener('click', library.onClickWatched);
+refs.queueBtn.addEventListener('click', library.onClickQueue);
 refs.searchForm.addEventListener('input', debounce(onSearch, 500));
 
 async function onSearch(event) {
@@ -55,6 +55,6 @@ async function onSearch(event) {
       total_results: dataSearched.total_results,
     };
 
-    filmsPagination.init(pagOptions, 'searched');
+    filmsPagination.init(pagOptions, 'searched', apiServices.query);
   }
 }
