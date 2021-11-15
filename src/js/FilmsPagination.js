@@ -1,6 +1,6 @@
 import Pagination from 'tui-pagination';
 import ApiServices from './ApiServices';
-import LocalService from './localStorage';
+import LocalService from './LocalStorage';
 import RenderMarkup from './RenderMarkup';
 
 const ref = {
@@ -16,6 +16,7 @@ export default class FilmsPagination {
   }
 
   async init(type, query) {
+    console.log(this.localService.getLocalTotalPages());
     const paginationOptions = {
       totalItems: this.localService.getLocalTotalPages(),
       visiblePages: 5,
@@ -40,9 +41,7 @@ export default class FilmsPagination {
       //@alex need ask about it shit
       let pagData;
 
-      console.log(type);
-
-      if (type === 'library') {
+      if (type === 'popular') {
         this.localService.setPaginationPage(event.page);
         pagData = await this.apiServices.fetchPopularFilms();
         this.renderMarkup.renderMarkup(pagData, { showVotes: false });
@@ -50,11 +49,10 @@ export default class FilmsPagination {
         this.apiServices.query = query;
         pagData = await this.apiServices.fetchQueriedFilms();
         this.renderMarkup.renderMarkup(pagData, { showVotes: false });
-      } else {
+      } else if (type === 'library') {
         this.localService.setPaginationPage(event.page);
-        pagData = await this.apiServices.fetchPopularFilms();
-        this.apiServices.query = query;
-        this.renderMarkup.renderMarkup(pagData, { showVotes: false });
+      } else {
+        return;
       }
     });
   }

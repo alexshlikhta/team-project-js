@@ -1,6 +1,6 @@
 import axios from 'axios';
 import genresObj from '../db/genres.json';
-import LocalService from './localStorage';
+import LocalService from './LocalStorage';
 
 const API_KEY = 'api_key=afc2024e71269fd3f1e3cbd71f7c4df4';
 const BASE_URL = 'https://api.themoviedb.org/3/';
@@ -49,8 +49,7 @@ export default class ApiServices {
       return error;
     }
   }
-
-  // ============fetch by ID============//
+  // ============fetch film by ID============//
   async fetchFilmById() {
     try {
       const response = await axios.get(
@@ -61,7 +60,17 @@ export default class ApiServices {
       return error;
     }
   }
-
+  // ================fetch trailer by ID==============//
+  async fetchTrailerById() {
+    try {
+      const response = await axios.get(
+        `${BASE_URL}movie/${this.movieId}/videos?${API_KEY}&language=en-US`,
+      );
+      return response.data.results;
+    } catch (error) {
+      return error;
+    }
+  }
   getMovieId() {
     return this.movieId;
   }
