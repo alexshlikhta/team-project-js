@@ -49,8 +49,7 @@ export default class ApiServices {
       return error;
     }
   }
-
-  // ============fetch by ID============//
+  // ============fetch film by ID============//
   async fetchFilmById() {
     try {
       const response = await axios.get(
@@ -61,7 +60,17 @@ export default class ApiServices {
       return error;
     }
   }
-
+  // ================fetch trailer by ID==============//
+  async fetchTrailerById() {
+    try {
+      const response = await axios.get(
+        `${BASE_URL}movie/${this.movieId}/videos?${API_KEY}&language=en-US`,
+      );
+      return response.data.results;
+    } catch (error) {
+      return error;
+    }
+  }
   getMovieId() {
     return this.movieId;
   }
