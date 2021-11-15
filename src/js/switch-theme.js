@@ -3,7 +3,6 @@ const check = document.querySelector('#theme-switch-toggle');
 const footer = document.querySelector('.footer');
 const footerText = document.querySelector('.footer__text');
 const footerBtn = document.querySelector('.footer__btn');
-// const filmsName = document.querySelector('.films__name');
 
 check.addEventListener('change', onChangeTheme);
 
@@ -21,7 +20,6 @@ if (saveLocalStorage === 'dark-theme') {
   footer.classList.add('dark-theme');
   footerText.classList.add('dark-theme');
   footerBtn.classList.add('dark-theme');
-  // filmsName.classList.add('dark-theme');
 }
 function onChangeTheme() {
   if (check.checked) {
@@ -32,15 +30,13 @@ function onChangeTheme() {
     footer.classList.remove('light-theme');
     footerText.classList.add('dark-theme');
     footerBtn.classList.add('dark-theme');
-    // filmsName.classList.add('dark-theme');
   } else {
     localStorage.setItem('Theme', light);
-    body.classList.add('light-theme');
+    // body.classList.add('light-theme');
     body.classList.remove('dark-theme');
-    footer.classList.add('light-theme');
+    // footer.classList.add('light-theme');
     footer.classList.remove('dark-theme');
     footerText.classList.remove('dark-theme');
     footerBtn.classList.remove('dark-theme');
-    // filmsName.classList.remove('dark-theme');
   }
 }
