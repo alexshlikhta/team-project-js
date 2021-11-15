@@ -12,11 +12,21 @@ export default class ApiServices {
     this.query = '';
     this.movieId = '';
   }
+  // ================= method for patination ==================//
+  setPage(page) {
+    return (this.page = page);
+  }
+
+  getPage() {
+    return this.page;
+  }
   // get popular films from API DB
   async fetchPopularFilms() {
     let popularFilms = 'trending/movie/week?';
     try {
-      const response = await axios.get(BASE_URL + popularFilms + API_KEY + `&page=${this.page}`);
+      const response = await axios.get(
+        BASE_URL + popularFilms + API_KEY + '&language=en-US&page=' + `&page=${this.getPage()}`,
+      );
       return response.data;
     } catch (error) {
       return error;
@@ -27,7 +37,11 @@ export default class ApiServices {
     try {
       const response = await axios.get(
         // need to verify request's url (url ok)
-        `${BASE_URL}${this.endPoint}${API_KEY}&language=en-US&page=${this.page}&query=${this.query}`,
+        BASE_URL +
+          this.endPoint +
+          API_KEY +
+          '&language=en-US&page=' +
+          `${this.getPage()}&query=${this.query}`,
       );
       return response.data;
     } catch (error) {
@@ -51,16 +65,18 @@ export default class ApiServices {
   setMovieId(currentMovieId) {
     return (this.movieId = currentMovieId);
   }
-  // ================= method for patination ==================//
-  getPage() {
-    return this.page;
-  }
-  setPage(page) {
-    this.page = page;
-  }
 
   transformData(data) {
-    return data.map(film => {
+    console.log(data);
+    let dataToMap;
+
+    if (data.results) {
+      dataToMap = data.results;
+    } else {
+      dataToMap = data;
+    }
+
+    return dataToMap.map(film => {
       film.year = film.release_date ? film.release_date.split('-')[0] : 'No information';
 
       const genresNamesArr = film.genre_ids.map(

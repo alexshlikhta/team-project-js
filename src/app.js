@@ -25,33 +25,32 @@ const renderMarkup = new RenderMarkup();
 const filmsPagination = new FilmsPagination();
 
 async function init() {
-  filmsPagination.init(await apiServices.fetchPopularFilms(), 'popular');
   renderMarkup.renderPopularFilms();
+  filmsPagination.init(await apiServices.fetchPopularFilms(), 'popular');
 }
 init();
 
 refs.watchedBtn.addEventListener('click', onClickWatched);
 refs.queueBtn.addEventListener('click', onClickQueue);
-// async function onSearch(event) {
-//   event.preventDefault();
+refs.searchForm.addEventListener('input', debounce(onSearch, 500));
 
-//   if (refs.searchForm.elements.query.value === '') {
-//     renderPopularFilms();
-//   } else {
-//     dataApiServices.query = refs.searchForm.elements.query.value;
-//     refs.filmsList.innerHTML = '';
-//     const dataSearched = await dataApiServices.fetchQueriedFilms();
-//     renderMarkup(dataSearched.results, { showVotes: false });
+async function onSearch(event) {
+  event.preventDefault();
 
-//     let pagOptions = {
-//       type: 'searched',
-//       page: dataSearched.page,
-//       total_pages: dataSearched.total_pages,
-//       total_results: dataSearched.total_results,
-//     };
+  if (refs.searchForm.elements.query.value === '') {
+    renderMarkup.renderPopularFilms();
+  } else {
+    apiServices.query = refs.searchForm.elements.query.value;
+    refs.filmsList.innerHTML = '';
+    const dataSearched = await apiServices.fetchQueriedFilms();
+    renderMarkup.renderMarkup(dataSearched.results, { showVotes: false });
 
-//     filmsPagination.init(pagOptions);
-//   }
-// }
+    let pagOptions = {
+      page: dataSearched.page,
+      total_pages: dataSearched.total_pages,
+      total_results: dataSearched.total_results,
+    };
 
-// refs.searchForm.addEventListener('input', debounce(onSearch, 500));
+    filmsPagination.init(pagOptions, 'searched');
+  }
+}

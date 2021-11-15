@@ -39,17 +39,8 @@ export default class RenderMarkup {
 
   renderPopularFilms = async () => {
     loader.show();
-
     const dataPopular = await this.apiServices.fetchPopularFilms();
     refs.filmsList.innerHTML = cardTemplate(this.apiServices.transformData(dataPopular.results));
-
-    let pagOptions = {
-      type: 'popular',
-      page: dataPopular.page,
-      total_pages: dataPopular.total_pages,
-      total_results: dataPopular.total_results,
-    };
-
     loader.close();
   };
 }

@@ -11,7 +11,7 @@ export default class FilmsPagination {
     this.apiServices = new ApiServices();
     this.renderMarkup = new RenderMarkup();
   }
-  async init(options, popular) {
+  async init(options, type) {
     const paginationOptions = {
       totalItems: options.total_results,
       visiblePages: 5,
@@ -33,18 +33,19 @@ export default class FilmsPagination {
     };
 
     const filmsPagination = new Pagination(ref.paginationBox, paginationOptions);
-    let pagData = null;
 
-    if (popular === 'popular') {
-      pagData = await this.apiServices.fetchPopularFilms();
-    } else {
-      pagData = await this.apiServices.fetchQueriedFilms();
-      this.renderMarkup.renderMarkup(pagData, { showVotes: false });
-    }
+    filmsPagination.on('afterMove', async event => {
+      this.apiServices.page = event.page;
+      // this.apiServices.query = event.page;
+      let pagData;
 
-    filmsPagination.on('beforeMove', async event => {
-      this.apiServices.setPage(event.page);
-      this.renderMarkup.renderPopularFilms();
+      if (type === 'popular') {
+        pagData = await this.apiServices.fetchPopularFilms();
+        this.renderMarkup.renderMarkup(pagData, { showVotes: false });
+      } else {
+        pagData = await this.apiServices.fetchQueriedFilms();
+        this.renderMarkup.renderMarkup(pagData, { showVotes: false });
+      }
     });
   }
 }
