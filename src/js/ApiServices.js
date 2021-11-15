@@ -1,38 +1,39 @@
 import axios from 'axios';
 import genresObj from '../db/genres.json';
+import LocalService from './localStorage';
 
 const API_KEY = 'api_key=afc2024e71269fd3f1e3cbd71f7c4df4';
 const BASE_URL = 'https://api.themoviedb.org/3/';
 
 export default class ApiServices {
   constructor() {
-    this.page = 1;
     this.endPoint = 'search/movie?';
     this.url = '';
     this.query = '';
     this.movieId = '';
-  }
-  // ================= method for patination ==================//
-  setPage(page) {
-    return (this.page = page);
+    this.localService = new LocalService();
   }
 
-  getPage() {
-    return this.page;
-  }
   // get popular films from API DB
   async fetchPopularFilms() {
     let popularFilms = 'trending/movie/week?';
     try {
       const response = await axios.get(
-        BASE_URL + popularFilms + API_KEY + '&language=en-US&page=' + `&page=${this.getPage()}`,
+        BASE_URL +
+          popularFilms +
+          API_KEY +
+          '&language=en-US&page=' +
+          `&page=${this.localService.getPaginationPage()}`,
       );
+      this.localService.setLocalTotalPages(response.data.total_results);
+      this.localService.setPaginationPage(response.data.page);
       return response.data;
     } catch (error) {
       return error;
     }
   }
-  //get searched movies by name(query)
+
+  // get searched movies by name(query)
   async fetchQueriedFilms() {
     try {
       const response = await axios.get(
@@ -41,13 +42,14 @@ export default class ApiServices {
           this.endPoint +
           API_KEY +
           '&language=en-US&page=' +
-          `${this.getPage()}&query=${this.query}`,
+          `${this.localService.getPaginationPage()}&query=${this.query}`,
       );
       return response.data;
     } catch (error) {
       return error;
     }
   }
+
   // ============fetch by ID============//
   async fetchFilmById() {
     try {
@@ -59,9 +61,11 @@ export default class ApiServices {
       return error;
     }
   }
+
   getMovieId() {
     return this.movieId;
   }
+
   setMovieId(currentMovieId) {
     return (this.movieId = currentMovieId);
   }

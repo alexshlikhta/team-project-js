@@ -28,4 +28,28 @@ export default class LocalService {
     localData.splice(localData.indexOf(value), 1);
     this.save(key, localData);
   };
+
+  setLocalTotalPages(number) {
+    localStorage.setItem('total-pages', number);
+  }
+
+  getLocalTotalPages() {
+    return localStorage.getItem('total-pages');
+  }
+
+  setPaginationPage(number) {
+    localStorage.setItem('pagination-page', number);
+  }
+
+  getPaginationPage() {
+    return localStorage.getItem('pagination-page');
+  }
+
+  setPaginationType(type) {
+    localStorage.setItem('pagination-type', type);
+  }
+
+  getPaginationType() {
+    return localStorage.getItem('pagination-type');
+  }
 }

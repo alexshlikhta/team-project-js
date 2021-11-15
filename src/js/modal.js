@@ -1,7 +1,7 @@
 import modalCard from '../templates/modalCard.hbs';
 import * as basicLightbox from 'basiclightbox';
 import ApiServices from './ApiServices';
-import { onModalButtons, clearListener } from './ModalButtons.js'
+import { onModalButtons, clearListener } from './ModalButtons.js';
 
 const bodyRef = document.querySelector('.js-films');
 
@@ -15,7 +15,7 @@ async function openLightbox(event) {
   if (event.target.nodeName !== 'IMG') {
     return;
   }
-  
+
   dataApiServices.setMovieId(event.target.attributes.id.value);
   const dataFilmById = await dataApiServices.fetchFilmById();
 

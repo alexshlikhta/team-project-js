@@ -1,5 +1,6 @@
 import Pagination from 'tui-pagination';
 import ApiServices from './ApiServices';
+import LocalService from './localStorage';
 import RenderMarkup from './RenderMarkup';
 
 const ref = {
@@ -10,13 +11,14 @@ export default class FilmsPagination {
   constructor() {
     this.apiServices = new ApiServices();
     this.renderMarkup = new RenderMarkup();
+    this.localService = new LocalService();
+    this.pagination;
   }
-  async init(options, type, query) {
+
+  async init(type, query) {
     const paginationOptions = {
-      totalItems: options.total_results,
+      totalItems: this.localService.getLocalTotalPages(),
       visiblePages: 5,
-      page: options.page,
-      centerAlign: false,
       template: {
         currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
         moveButton: `<span class="tui-ico-{{type}}"><svg width="100%" height="100%" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,20 +34,26 @@ export default class FilmsPagination {
       },
     };
 
-    const filmsPagination = new Pagination(ref.paginationBox, paginationOptions);
+    this.pagination = new Pagination(ref.paginationBox, paginationOptions);
 
-    filmsPagination.on('afterMove', async event =>
-    {
+    this.pagination.on('afterMove', async event => {
       //@alex need ask about it shit
-      this.apiServices.page = event.page;
-      this.apiServices.query = query;
       let pagData;
 
-      if (type === 'popular') {
+      console.log(type);
+
+      if (type === 'library') {
+        this.localService.setPaginationPage(event.page);
         pagData = await this.apiServices.fetchPopularFilms();
         this.renderMarkup.renderMarkup(pagData, { showVotes: false });
-      } else {
+      } else if (type === 'query') {
+        this.apiServices.query = query;
         pagData = await this.apiServices.fetchQueriedFilms();
+        this.renderMarkup.renderMarkup(pagData, { showVotes: false });
+      } else {
+        this.localService.setPaginationPage(event.page);
+        pagData = await this.apiServices.fetchPopularFilms();
+        this.apiServices.query = query;
         this.renderMarkup.renderMarkup(pagData, { showVotes: false });
       }
     });

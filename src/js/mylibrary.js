@@ -1,6 +1,7 @@
 import ApiServices from './ApiServices.js';
 import LocalService from './localStorage';
 import RenderMarkup from './RenderMarkup';
+import FilmsPagination from './FilmsPagination.js';
 
 const refs = {
   filmsList: document.querySelector('.js-films'),
@@ -11,6 +12,7 @@ export default class library {
     this.localService = new LocalService();
     this.apiServices = new ApiServices();
     this.renderMarkup = new RenderMarkup();
+    this.filmsPagination = new FilmsPagination();
   }
 
   onClickMyLibrary = () => {
@@ -27,7 +29,11 @@ export default class library {
         '<li class="card__title"><p>Your watched list is empty! Please add some films!</p></li>';
     } else {
       const results = [];
+
+      let counter = 0;
+
       for (let id of localData) {
+        counter++;
         this.apiServices.movieId = id;
         this.apiServices.fetchFilmById().then(data => {
           data.genre_ids = data.genres.map(item => item.id);
@@ -35,6 +41,9 @@ export default class library {
           this.renderMarkup.renderMarkup(results, { showVotes: true });
         });
       }
+
+      this.localService.setLocalTotalPages(counter);
+      this.filmsPagination.init();
     }
   };
 
