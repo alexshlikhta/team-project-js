@@ -4,6 +4,7 @@
     background-color: #fff;
     padding: 50px 20px;
     border-radius: 5px;
+    box-shadow: inset 0 0 10px 5px var(--color-grey-1);
 
     @include tablet {
       display: flex;
@@ -68,7 +69,32 @@
   &__image {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+
+    object-fit: cover;
+  }
+  &__button-trailer {
+    width: 240px;
+    height: 44px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background-color: var(--color-orange);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.33;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include tablet {
+      width: 260px;
+    }
+
+    @include desktop {
+      width: 400px;
+    }
   }
 }
 
@@ -157,13 +183,11 @@
     margin-right: 20px;
   }
   &__btn {
-    cursor: pointer;
-    width: 100px;
+    width: 110px;
     height: 44px;
     padding: 0;
     margin: 0;
     border: 1px solid #000000;
-    box-sizing: border-box;
     border-radius: 5px;
     background-color: transparent;
     font-weight: 500;
@@ -178,7 +202,7 @@
     }
 
     @include desktop {
-      width: 140px;
+      width: 190px;
     }
 
     &:hover,
@@ -186,5 +210,20 @@
       border: none;
       background: var(--color-orange);
     }
+  }
+}
+
+.trailer {
+  width: 240px;
+  height: 200px;
+
+  @include tablet {
+    width: 580px;
+    height: 400px;
+  }
+
+  @include desktop {
+    width: 860px;
+    height: 600px;
   }
 }

@@ -1,4 +1,5 @@
 import modalCard from '../templates/modalCard.hbs';
+import trailerTpl from '../templates/trailer.hbs';
 import * as basicLightbox from 'basiclightbox';
 import ApiServices from './ApiServices';
 // import { onModalButtons, clearListener } from './ModalButtons.js'
@@ -20,11 +21,28 @@ async function openLightbox(event) {
 
   dataApiServices.setMovieId(event.target.attributes.id.value);
   const dataFilmById = await dataApiServices.fetchFilmById();
+  console.log(dataFilmById);
 
   const markup = modalCard(dataFilmById);
   const modal = basicLightbox.create(markup);
   modal.show();
   modalbuttons.onModalButtons();
+  // ============================open trailer======================================
+  const dataTrailerById = await dataApiServices.fetchTrailerById();
+  const trailerUrl = dataTrailerById.find(card => {
+    card.type === 'Trailer';
+    console.log(card.key);
+    return card.key;
+  });
+  const buttonTrailerRef = document.querySelector('.js-button-trailer');
+
+  buttonTrailerRef.addEventListener('click', onOpenTrailer);
+  function onOpenTrailer() {
+    const markupTrailer = trailerTpl(trailerUrl);
+    const modalTrailer = basicLightbox.create(markupTrailer);
+    modal.close();
+    modalTrailer.show();
+  }
   // =========close by clicking on the cross==============//
   const closeBtnRef = document.querySelector('[data-action="modal-close-icon"]');
   closeBtnRef.addEventListener('click', () => {
