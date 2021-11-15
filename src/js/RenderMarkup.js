@@ -11,15 +11,16 @@ const refs = {
 export default class RenderMarkup {
   constructor() {
     this.apiServices = new ApiServices();
+    this.delay = 2000;
   }
 
   renderMarkup = (results, { showVotes }) => {
     loader.show();
 
-    if (results.length === 0) {
+    if (results.length === 0) { 
       refs.errorMsg.classList.remove('visually-hidden');
-    } else {
-      refs.errorMsg.classList.add('visually-hidden')
+      setTimeout( ()=> {
+      refs.errorMsg.classList.add('visually-hidden')},this.delay);
     }
 
     refs.filmsList.innerHTML = cardTemplate(this.apiServices.transformData(results));
