@@ -1,85 +1,57 @@
 import './sass/main.scss';
 import './js/header';
-import ApiServices from './js/ApiServices.js';
-import cardTemplate from './templates/film-card.hbs';
-import loader from './js/loader';
-import filmsPagination from './js/pagination.js';
 import debounce from 'lodash.debounce';
-import { filmCardTransformData } from './js/film-card-transform-data';
 import './js/modal';
-// import './js/modalDev';
 import './js/modal-dev-v2'
+import './js/modalDev';
 import './js/totopbutton.js';
+import './js/animationSvg';
+
+import RenderMarkup from './js/RenderMarkup';
+import FilmsPagination from './js/FilmsPagination.js';
+import ApiServices from './js/ApiServices';
+import { onClickWatched, onClickQueue } from './js/mylibrary';
 
 const refs = {
   searchForm: document.querySelector('#search-form'),
+  searchButton: document.querySelector('.btn-search'),
   filmsList: document.querySelector('.js-films'),
-  errorMsg: document.querySelector('#error'),
+  watchedBtn: document.querySelector('#watched'),
+  queueBtn: document.querySelector('#queue'),
 };
 
-const dataApiServices = new ApiServices();
+const apiServices = new ApiServices();
+const renderMarkup = new RenderMarkup();
+const filmsPagination = new FilmsPagination();
 
-async function renderPopularFilms() {
-  const dataPopular = await dataApiServices.fetchPopularFilms();
-  renderMarkup(dataPopular.results);
-
-  let pagOptions = {
-    type: 'popular',
-    page: dataPopular.page,
-    total_pages: dataPopular.total_pages,
-    total_results: dataPopular.total_results,
-  };
-
-  initPagination(pagOptions);
+async function init() {
+  filmsPagination.init(await apiServices.fetchPopularFilms(), 'popular');
+  renderMarkup.renderPopularFilms();
 }
-renderPopularFilms();
+init();
 
-async function onSearch(event) {
-  event.preventDefault();
+refs.watchedBtn.addEventListener('click', onClickWatched);
+refs.queueBtn.addEventListener('click', onClickQueue);
+// async function onSearch(event) {
+//   event.preventDefault();
 
-  if (refs.searchForm.elements.query.value === '') {
-    renderPopularFilms();
-  } else {
-    dataApiServices.query = refs.searchForm.elements.query.value;
-    refs.filmsList.innerHTML = '';
-    const dataSearched = await dataApiServices.fetchQueriedFilms();
-    renderMarkup(dataSearched.results);
+//   if (refs.searchForm.elements.query.value === '') {
+//     renderPopularFilms();
+//   } else {
+//     dataApiServices.query = refs.searchForm.elements.query.value;
+//     refs.filmsList.innerHTML = '';
+//     const dataSearched = await dataApiServices.fetchQueriedFilms();
+//     renderMarkup(dataSearched.results, { showVotes: false });
 
-    let pagOptions = {
-      type: 'searched',
-      page: dataSearched.page,
-      total_pages: dataSearched.total_pages,
-      total_results: dataSearched.total_results,
-    };
+//     let pagOptions = {
+//       type: 'searched',
+//       page: dataSearched.page,
+//       total_pages: dataSearched.total_pages,
+//       total_results: dataSearched.total_results,
+//     };
 
-    initPagination(pagOptions);
-  }
-}
+//     filmsPagination.init(pagOptions);
+//   }
+// }
 
-function renderMarkup(results) {
-  loader.show();
-  if (results.length === 0) {
-    refs.errorMsg.classList.remove('hdr-hidden');
-  } else {
-    // refs.errorMsg.classList.add('hdr-hidden')
-  }
-  refs.filmsList.innerHTML = cardTemplate(filmCardTransformData(results));
-  loader.close();
-}
-
-function initPagination(pagOptions) {
-  filmsPagination(pagOptions).on('beforeMove', async event => {
-    dataApiServices.setPage(event.page);
-    let pagData = null;
-
-    if (pagOptions.type === 'popular') {
-      pagData = await dataApiServices.fetchPopularFilms();
-    } else {
-      pagData = await dataApiServices.fetchQueriedFilms();
-    }
-
-    renderMarkup(pagData.results);
-  });
-}
-
-refs.searchForm.addEventListener('input', debounce(onSearch, 500));
+// refs.searchForm.addEventListener('input', debounce(onSearch, 500));

@@ -111,20 +111,21 @@
   justify-content: center;
   margin: 0 auto;
   width: 280px;
-  height: 36px;
+  height: 20px;
   border: none;
+  outline: none;
   background-color: rgba(0, 0, 0, 0.1);
   border-bottom: 0.5px solid var(--color-white);
   padding-bottom: 4px;
   padding-left: 3px;
   color: var(--color-white);
 
-  &:hover,
-  &:focus {
-    background-color: rgba(240, 233, 233, 0.2);
-    border-top: 0.5px solid var(--color-white);
-    border-radius: 12px;
-  }
+  // &:hover,
+  // &:focus {
+  //   background-color: rgba(240, 233, 233, 0.2);
+  //   border-top: 0.5px solid var(--color-white);
+  //   border-radius: 12px;
+  // }
 
   &::placeholder {
     font-size: 14px;
@@ -142,15 +143,15 @@
   height: 12px;
   width: 12px;
   border: none;
-  transform: translate(265px, -26px);
+  transform: translate(265px, -20px);
   cursor: pointer;
 
   @include tablet {
-    transform: translate(435px, -26px);
+    transform: translate(435px, -20px);
   }
 
   @include desktop {
-    transform: translate(567px, -26px);
+    transform: translate(570px, -20px);
   }
 }
 
@@ -187,6 +188,15 @@
       background-image: url('../images/desktop/bg-header-desktop2@2x.jpg');
     }
   }
+}
+//====added error styles====//
+.error-msg {
+  margin-top: 10px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  text-align: center;
+  color: rgba(255, 0, 27, 1);
 }
 
 .users-lists {
