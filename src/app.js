@@ -2,7 +2,7 @@ import './sass/main.scss';
 import './js/header';
 import debounce from 'lodash.debounce';
 import './js/modal';
-// import './js/buttonsHend.js'
+import './js/modal-dev-v2'
 import './js/modalDev';
 import './js/totopbutton.js';
 import './js/animationSvg';
