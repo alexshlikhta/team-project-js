@@ -17,9 +17,9 @@ export default class RenderMarkup {
     loader.show();
 
     if (results.length === 0) {
-      refs.errorMsg.classList.remove('hdr-hidden');
+      refs.errorMsg.classList.remove('visually-hidden');
     } else {
-      // refs.errorMsg.classList.add('hdr-hidden')
+      refs.errorMsg.classList.add('visually-hidden')
     }
 
     refs.filmsList.innerHTML = cardTemplate(this.apiServices.transformData(results));
