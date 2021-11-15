@@ -9,7 +9,8 @@ import './js/animationSvg';
 import RenderMarkup from './js/RenderMarkup';
 import FilmsPagination from './js/FilmsPagination.js';
 import ApiServices from './js/ApiServices';
-import Library from './js/mylibrary';
+import Library from './js/Library';
+import LocalService from './js/LocalStorage';
 
 const refs = {
   searchForm: document.querySelector('#search-form'),
@@ -25,10 +26,15 @@ const apiServices = new ApiServices();
 const renderMarkup = new RenderMarkup();
 const filmsPagination = new FilmsPagination();
 const library = new Library();
+const localService = new LocalService();
 
 async function init() {
+  let result = await apiServices.fetchPopularFilms();
+  localService.clean();
   renderMarkup.renderPopularFilms();
-  filmsPagination.init(await apiServices.fetchPopularFilms(), 'popular');
+  localService.setPaginationType('popular');
+  localService.setLocalTotalPages(result.total_results);
+  filmsPagination.init('popular');
 }
 init();
 
@@ -48,13 +54,8 @@ async function onSearch(event) {
     refs.filmsList.innerHTML = '';
     const dataSearched = await apiServices.fetchQueriedFilms();
     renderMarkup.renderMarkup(dataSearched.results, { showVotes: false });
-
-    let pagOptions = {
-      page: dataSearched.page,
-      total_pages: dataSearched.total_pages,
-      total_results: dataSearched.total_results,
-    };
-
-    filmsPagination.init(pagOptions, 'searched', apiServices.query);
+    localService.setPaginationType('query');
+    localService.setLocalTotalPages(dataSearched.total_results);
+    filmsPagination.init('query', refs.searchForm.elements.query.value);
   }
 }
