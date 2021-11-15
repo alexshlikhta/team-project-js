@@ -17,7 +17,7 @@ async function openLightbox(event) {
   if (event.target.nodeName !== 'IMG') {
     return;
   }
-  
+
   dataApiServices.setMovieId(event.target.attributes.id.value);
   const dataFilmById = await dataApiServices.fetchFilmById();
 

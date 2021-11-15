@@ -1,4 +1,4 @@
-import LocalService from './localStorage.js';
+import LocalService from './LocalStorage.js';
 
   let btnWatched;
   let btnQueue;
