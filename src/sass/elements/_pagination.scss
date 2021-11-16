@@ -2,6 +2,10 @@
   margin: auto 0 40px 0;
   height: unset;
 
+  &.hidden {
+    display: none;
+  }
+
   & .tui {
     &-last,
     &-first,

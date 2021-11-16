@@ -11,15 +11,16 @@ const refs = {
 export default class RenderMarkup {
   constructor() {
     this.apiServices = new ApiServices();
+    this.delay = 2000;
   }
 
   renderMarkup = (results, { showVotes }) => {
     loader.show();
 
-    if (results.length === 0) {
-      refs.errorMsg.classList.remove('hdr-hidden');
-    } else {
-      // refs.errorMsg.classList.add('hdr-hidden')
+    if (results.length === 0) { 
+      refs.errorMsg.classList.remove('visually-hidden');
+      setTimeout( ()=> {
+      refs.errorMsg.classList.add('visually-hidden')},this.delay);
     }
 
     refs.filmsList.innerHTML = cardTemplate(this.apiServices.transformData(results));
@@ -39,17 +40,8 @@ export default class RenderMarkup {
 
   renderPopularFilms = async () => {
     loader.show();
-
     const dataPopular = await this.apiServices.fetchPopularFilms();
     refs.filmsList.innerHTML = cardTemplate(this.apiServices.transformData(dataPopular.results));
-
-    let pagOptions = {
-      type: 'popular',
-      page: dataPopular.page,
-      total_pages: dataPopular.total_pages,
-      total_results: dataPopular.total_results,
-    };
-
     loader.close();
   };
 }

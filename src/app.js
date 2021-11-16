@@ -2,7 +2,6 @@ import './sass/main.scss';
 import './js/header';
 import debounce from 'lodash.debounce';
 import './js/modal';
-import './js/modal-dev-v2';
 import './js/modalDev';
 import './js/totopbutton.js';
 import './js/animationSvg';
@@ -11,7 +10,8 @@ import './js/switch-theme';
 import RenderMarkup from './js/RenderMarkup';
 import FilmsPagination from './js/FilmsPagination.js';
 import ApiServices from './js/ApiServices';
-import { onClickWatched, onClickQueue } from './js/mylibrary';
+import Library from './js/Library';
+import LocalService from './js/LocalStorage';
 
 const refs = {
   searchForm: document.querySelector('#search-form'),
@@ -19,40 +19,44 @@ const refs = {
   filmsList: document.querySelector('.js-films'),
   watchedBtn: document.querySelector('#watched'),
   queueBtn: document.querySelector('#queue'),
+  mylibrary: document.querySelector('#my-library'),
+  homeBtn: document.querySelector('#home'),
 };
 
 const apiServices = new ApiServices();
 const renderMarkup = new RenderMarkup();
 const filmsPagination = new FilmsPagination();
+const library = new Library();
+const localService = new LocalService();
 
 async function init() {
-  filmsPagination.init(await apiServices.fetchPopularFilms(), 'popular');
+  let result = await apiServices.fetchPopularFilms();
+  localService.clean();
   renderMarkup.renderPopularFilms();
+  localService.setPaginationType('popular');
+  localService.setLocalTotalPages(result.total_results);
+  filmsPagination.init('popular');
 }
 init();
 
-refs.watchedBtn.addEventListener('click', onClickWatched);
-refs.queueBtn.addEventListener('click', onClickQueue);
-// async function onSearch(event) {
-//   event.preventDefault();
+refs.homeBtn.addEventListener('click', init);
+refs.mylibrary.addEventListener('click', library.onClickMyLibrary);
+refs.watchedBtn.addEventListener('click', library.onClickWatched);
+refs.queueBtn.addEventListener('click', library.onClickQueue);
+refs.searchForm.addEventListener('input', debounce(onSearch, 500));
 
-//   if (refs.searchForm.elements.query.value === '') {
-//     renderPopularFilms();
-//   } else {
-//     dataApiServices.query = refs.searchForm.elements.query.value;
-//     refs.filmsList.innerHTML = '';
-//     const dataSearched = await dataApiServices.fetchQueriedFilms();
-//     renderMarkup(dataSearched.results, { showVotes: false });
+async function onSearch(event) {
+  event.preventDefault();
 
-//     let pagOptions = {
-//       type: 'searched',
-//       page: dataSearched.page,
-//       total_pages: dataSearched.total_pages,
-//       total_results: dataSearched.total_results,
-//     };
-
-//     filmsPagination.init(pagOptions);
-//   }
-// }
-
-// refs.searchForm.addEventListener('input', debounce(onSearch, 500));
+  if (refs.searchForm.elements.query.value === '') {
+    renderMarkup.renderPopularFilms();
+  } else {
+    apiServices.query = refs.searchForm.elements.query.value;
+    refs.filmsList.innerHTML = '';
+    const dataSearched = await apiServices.fetchQueriedFilms();
+    renderMarkup.renderMarkup(dataSearched.results, { showVotes: false });
+    localService.setPaginationType('query');
+    localService.setLocalTotalPages(dataSearched.total_results);
+    filmsPagination.init('query', refs.searchForm.elements.query.value);
+  }
+}

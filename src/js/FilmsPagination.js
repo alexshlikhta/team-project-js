@@ -1,5 +1,6 @@
 import Pagination from 'tui-pagination';
 import ApiServices from './ApiServices';
+import LocalService from './LocalStorage';
 import RenderMarkup from './RenderMarkup';
 
 const ref = {
@@ -10,13 +11,15 @@ export default class FilmsPagination {
   constructor() {
     this.apiServices = new ApiServices();
     this.renderMarkup = new RenderMarkup();
+    this.localService = new LocalService();
+    this.pagination;
   }
-  async init(options, popular) {
+
+  async init(type, query) {
+    console.log(this.localService.getLocalTotalPages());
     const paginationOptions = {
-      totalItems: options.total_results,
+      totalItems: this.localService.getLocalTotalPages(),
       visiblePages: 5,
-      page: options.page,
-      centerAlign: false,
       template: {
         currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
         moveButton: `<span class="tui-ico-{{type}}"><svg width="100%" height="100%" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,19 +35,25 @@ export default class FilmsPagination {
       },
     };
 
-    const filmsPagination = new Pagination(ref.paginationBox, paginationOptions);
-    let pagData = null;
+    this.pagination = new Pagination(ref.paginationBox, paginationOptions);
 
-    if (popular === 'popular') {
-      pagData = await this.apiServices.fetchPopularFilms();
-    } else {
-      pagData = await this.apiServices.fetchQueriedFilms();
-      this.renderMarkup.renderMarkup(pagData, { showVotes: false });
-    }
+    this.pagination.on('afterMove', async event => {
+      //@alex need ask about it shit
+      let pagData;
 
-    filmsPagination.on('beforeMove', async event => {
-      this.apiServices.setPage(event.page);
-      this.renderMarkup.renderPopularFilms();
+      if (type === 'popular') {
+        this.localService.setPaginationPage(event.page);
+        pagData = await this.apiServices.fetchPopularFilms();
+        this.renderMarkup.renderMarkup(pagData, { showVotes: false });
+      } else if (type === 'query') {
+        this.apiServices.query = query;
+        pagData = await this.apiServices.fetchQueriedFilms();
+        this.renderMarkup.renderMarkup(pagData, { showVotes: false });
+      } else if (type === 'library') {
+        this.localService.setPaginationPage(event.page);
+      } else {
+        return;
+      }
     });
   }
 }
