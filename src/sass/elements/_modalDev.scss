@@ -40,7 +40,7 @@
 
   overflow: auto;
   transform: translate(-50%, -50%) scale(1);
-  transition: transform var(250ms cubic-bezier(0.4, 0, 0.2, 1));
+  transition: transform var(--animation);
 }
 
 .is-hidden .modal-devs__overlay {
