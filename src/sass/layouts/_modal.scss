@@ -78,22 +78,35 @@
     padding: 0;
     margin: 0;
     cursor: pointer;
-    border: 1px solid #000000;
+    border: none;
     border-radius: 5px;
-    background-color: var(--color-orange);
+    background-color: transparent;
+    background-image: url('../images/youtube.svg');
+    background-repeat: no-repeat;
+    color: #ff0000;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 25px;
     line-height: 1.33;
+    letter-spacing: 6px;
     align-items: center;
     text-align: center;
     text-transform: uppercase;
+    transition: transform var(--animation);
+
+    &:hover,
+    &:focus {
+      transform: scale(1.04) translate(4px, -5px);
+    }
 
     @include tablet {
       width: 260px;
+      letter-spacing: 8px;
     }
 
     @include desktop {
       width: 400px;
+      font-size: 30px;
+      letter-spacing: 15px;
     }
   }
 }

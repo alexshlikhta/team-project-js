@@ -27,16 +27,23 @@ async function openLightbox(event) {
   modalbuttons.onModalButtons();
   // ============================open trailer======================================
   const dataTrailerById = await dataApiServices.fetchTrailerById();
-  const trailerUrl = dataTrailerById.find(card => {
-    card.type === 'Trailer';
-    return card.key;
-  });
   const buttonTrailerRef = document.querySelector('.js-button-trailer');
-
   buttonTrailerRef.addEventListener('click', onOpenTrailer);
 
+  function getTrailerKey(data) {
+    const alternativeKey = { key: 'aDm5WZ3QiIE' };
+    const trailerKey = dataTrailerById.find(card => {
+      card.type === 'Trailer';
+      return card.key;
+    });
+    if (trailerKey) {
+      return trailerKey;
+    }
+    return alternativeKey;
+  }
+
   function onOpenTrailer() {
-    const markupTrailer = trailerTpl(trailerUrl);
+    const markupTrailer = trailerTpl(getTrailerKey(dataTrailerById));
     const modalTrailer = basicLightbox.create(markupTrailer);
     modal.close();
     modalTrailer.show();
