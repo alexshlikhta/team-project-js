@@ -24,6 +24,7 @@ export default class RenderMarkup {
       setTimeout(() => {
         refs.errorMsg.classList.add('visually-hidden');
       }, this.delay);
+      return loader.close();
     }
 
     refs.filmsList.innerHTML = cardTemplate(this.apiServices.transformData(results));
