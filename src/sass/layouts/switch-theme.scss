@@ -1,0 +1,120 @@
+// body.light-theme {
+//   background-color: var(--color-grey);
+//   color: var(--color-grey-2);
+// }
+
+body.dark-theme {
+  background-color: var(--color-grey-2);
+  color: var(--color-grey);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 24px 0;
+}
+
+/* THEME SWITCH */
+.theme-switch {
+  display: flex;
+  align-items: center;
+}
+
+.svg-switch {
+  margin-right: 10px;
+  //   padding-top: 3px;
+}
+
+.theme-switch__icon {
+  color: currentColor;
+  height: 24px;
+  width: 24px;
+  margin-right: 8px;
+  margin-left: 8px;
+}
+
+.theme-switch__control {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+  width: 64px;
+  height: 24px;
+  border-radius: 50em;
+  padding: 3px 0;
+}
+
+.theme-switch__toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.theme-switch__track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--color-orange);
+  user-select: none;
+  background-color: var(--color-grey-2);
+  border-radius: inherit;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.theme-switch__marker {
+  position: relative;
+  background-color: var(--color-orange);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  transform: translateX(3px);
+  transition: transform 250ms;
+}
+.theme-switch__toggle + .theme-switch__track,
+.theme-switch__toggle + .theme-switch__track {
+  box-shadow: 0 0 0 2px var(--color-orange);
+}
+
+.theme-switch__toggle:checked + .theme-switch__track {
+  background-color: var(--color-grey);
+}
+
+.theme-switch__toggle:checked ~ .theme-switch__marker {
+  transform: translateX(35px);
+}
+
+// .theme-switch__toggle:focus + .theme-switch__track,
+// .theme-switch__toggle:active + .theme-switch__track {
+//   box-shadow: 0 0 0 2px var(--color-grey);
+// }
+
+// footer.light-theme {
+//   background-color: var(--color-grey);
+//   color: var(--color-black);
+// }
+
+footer.dark-theme,
+.footer__btn.dark-theme,
+.footer__text.dark-theme {
+  background-color: var(--color-black);
+  color: var(--color-grey);
+}
+.footer__btn.dark-theme:hover {
+  color: var(--color-grey-3);
+}
+
+.dark-theme .films__name {
+  color: var(--color-grey);
+}

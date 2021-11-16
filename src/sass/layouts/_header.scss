@@ -98,6 +98,10 @@
   background-color: transparent;
   text-transform: uppercase;
   color: var(--color-white);
+  transition: var(--animation);
+  &:hover{
+    transform: scale(1.1);
+  }
 }
 
 .current::after {
@@ -225,6 +229,7 @@
     border: 1px solid var(--color-white);
     color: var(--color-white);
     cursor: pointer;
+    transition: background-color var(--animation);
   }
 
   & .active {

@@ -113,6 +113,7 @@
     font-size: 20px;
     margin-bottom: 20px;
     text-transform: uppercase;
+    color: var(--color-black);
 
     @include desktop {
       font-size: 30px;
@@ -141,6 +142,7 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
+    color: var(--color-black);
 
     @include desktop {
       font-size: 16px;
@@ -167,12 +169,14 @@
     font-size: 12px;
     line-height: 1.33;
     text-transform: uppercase;
+    color: var(--color-black);
   }
   &__description {
     font-weight: 500;
     font-size: 12px;
     line-height: 1.66;
     margin-bottom: 40px;
+    color: var(--color-black);
   }
 }
 .modal-button {
@@ -196,6 +200,8 @@
     align-items: center;
     text-align: center;
     text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color var(--animation);
 
     @include tablet {
       width: 120px;

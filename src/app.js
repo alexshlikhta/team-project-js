@@ -5,6 +5,7 @@ import './js/modal';
 import './js/modalDev';
 import './js/totopbutton.js';
 import './js/animationSvg';
+import './js/switch-theme';
 
 import RenderMarkup from './js/RenderMarkup';
 import FilmsPagination from './js/FilmsPagination.js';
