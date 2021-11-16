@@ -61,6 +61,14 @@ img {
   display: none !important;
 }
 
+body {
+  &.dark-theme {
+    & .modal__container {
+      background-color: var(--color-grey-1);
+    }
+  }
+}
+
 main {
   flex: 1;
   display: flex;

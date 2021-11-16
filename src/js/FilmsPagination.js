@@ -38,7 +38,8 @@ export default class FilmsPagination {
     this.pagination = new Pagination(ref.paginationBox, paginationOptions);
 
     this.pagination.on('afterMove', async event => {
-      //@alex need ask about it shit
+      window.scrollTo(0, 0);
+
       let pagData;
 
       console.log(type);
