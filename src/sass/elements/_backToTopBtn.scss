@@ -5,4 +5,8 @@
   display: none;
   position: fixed;
   z-index: 999;
+  transition: transform var(--animation);
+  &:hover{
+    transform: scale(1.2);
+  }
 }

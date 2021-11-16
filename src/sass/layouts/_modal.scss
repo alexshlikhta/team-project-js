@@ -196,6 +196,8 @@
     align-items: center;
     text-align: center;
     text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color var(--animation);
 
     @include tablet {
       width: 120px;

@@ -4,16 +4,15 @@ upButton.addEventListener('click', smoothJumpUp);
 
 function smoothJumpUp() {
   if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-    window.scrollBy(0, -50);
-    setTimeout(smoothJumpUp, 5);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
 
-window.onscroll = function () {
+window.onscroll = () => {
   let scrolled = window.pageYOffset || document.documentElement.scrollTop;
-  if (scrolled > 100) {
-    document.getElementById('upbutton').style.display = 'block'; //показуєм кнопку
+  if (scrolled > 700) {
+    document.getElementById('upbutton').style.display = 'block';
   } else {
-    document.getElementById('upbutton').style.display = 'none'; //приховуєм кнопку
+    document.getElementById('upbutton').style.display = 'none';
   }
 };
