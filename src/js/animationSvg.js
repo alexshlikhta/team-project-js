@@ -17,7 +17,7 @@ import LazyLinePainter from 'lazy-line-painter';
       const switchTheme = document.querySelector('#switch');
       const animationSwitch = new LazyLinePainter(switchTheme, {
         ease: 'easeLinear',
-        strokeWidth: 15,
+        strokeWidth: 1,
         strokeOpacity: 1,
         strokeColor: '#FF6B08',
         delay: 200,
