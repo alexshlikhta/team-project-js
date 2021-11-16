@@ -1,6 +1,11 @@
+.basicLightbox {
+  height: 100%;
+  overflow-y: auto;
+}
 .modal {
   &__container {
     position: relative;
+    top: 250px;
     background-color: #fff;
     padding: 50px 20px;
     border-radius: 5px;
@@ -8,6 +13,7 @@
 
     @include tablet {
       display: flex;
+      top: auto;
     }
 
     @include tablet {
@@ -73,7 +79,7 @@
     object-fit: cover;
   }
   &__button-trailer {
-    width: 240px;
+    width: 200px;
     height: 44px;
     padding: 0;
     margin: 0;
@@ -83,13 +89,14 @@
     background-color: transparent;
     background-image: url('../images/youtube.svg');
     background-repeat: no-repeat;
-    color: #ff0000;
+    background-position: 5px;
+    color: var(--color-red);
     font-weight: 500;
     font-size: 25px;
     line-height: 1.33;
     letter-spacing: 6px;
     align-items: center;
-    text-align: center;
+    text-align: right;
     text-transform: uppercase;
     transition: transform var(--animation);
 
@@ -99,12 +106,12 @@
     }
 
     @include tablet {
-      width: 260px;
+      width: 230px;
       letter-spacing: 8px;
     }
 
     @include desktop {
-      width: 400px;
+      width: 320px;
       font-size: 30px;
       letter-spacing: 15px;
     }
@@ -112,6 +119,7 @@
 }
 
 .card {
+  overflow: auto;
   width: 240px;
 
   @include tablet {
