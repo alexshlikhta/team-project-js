@@ -20,6 +20,7 @@ const refs = {
   queueBtn: document.querySelector('#queue'),
   mylibrary: document.querySelector('#my-library'),
   homeBtn: document.querySelector('#home'),
+  paginationBox: document.getElementById('tui-pagination'),
 };
 
 const apiServices = new ApiServices();
@@ -30,6 +31,7 @@ const localService = new LocalService();
 
 async function init() {
   let result = await apiServices.fetchPopularFilms();
+  refs.paginationBox.classList.remove('hidden');
   localService.clean();
   renderMarkup.renderPopularFilms();
   localService.setPaginationType('popular');
@@ -48,7 +50,7 @@ async function onSearch(event) {
   event.preventDefault();
 
   if (refs.searchForm.elements.query.value === '') {
-    renderMarkup.renderPopularFilms();
+    init();
   } else {
     apiServices.query = refs.searchForm.elements.query.value;
     refs.filmsList.innerHTML = '';

@@ -6,6 +6,7 @@ const refs = {
   filmsList: document.querySelector('.js-films'),
   errorMsg: document.querySelector('#error'),
   votesSpan: document.getElementsByClassName('films__votes'),
+  paginationBox: document.getElementById('tui-pagination'),
 };
 
 export default class RenderMarkup {
@@ -17,10 +18,12 @@ export default class RenderMarkup {
   renderMarkup = (results, { showVotes }) => {
     loader.show();
 
-    if (results.length === 0) { 
+    if (results.length === 0) {
       refs.errorMsg.classList.remove('visually-hidden');
-      setTimeout( ()=> {
-      refs.errorMsg.classList.add('visually-hidden')},this.delay);
+      refs.paginationBox.classList.add('hidden');
+      setTimeout(() => {
+        refs.errorMsg.classList.add('visually-hidden');
+      }, this.delay);
     }
 
     refs.filmsList.innerHTML = cardTemplate(this.apiServices.transformData(results));
