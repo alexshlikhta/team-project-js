@@ -1,9 +1,11 @@
 import LocalService from './LocalStorage.js';
+import library from './Library.js';
 
 export default class ModalButtons {
   constructor() {
     this.storageAPI = new LocalService();
     this.refs = {};
+    this.library = new library();
   }
 
   //=========declaring buttons handler function and listeners
@@ -12,6 +14,9 @@ export default class ModalButtons {
     this.refs = {
       btnWatched: document.querySelector('.js-watched'),
       btnQueue: document.querySelector('.js-queue'),
+      myLibraryBtn: document.getElementById('my-library'),
+      watchedBtn: document.getElementById('watched'),
+      queueBtn: document.getElementById('queue'),
     };
     this.refs.btnWatched.addEventListener('click', e => this.onWatchedBtn(e));
     this.refs.btnQueue.addEventListener('click', e => this.onQueueBtn(e));
@@ -45,6 +50,9 @@ export default class ModalButtons {
     this.storageAPI.remove(this.storageAPI.keys.WATCHED, event.target.dataset.id);
     event.target.textContent = 'add to watched';
     event.target.dataset.action = 'add';
+    if (this.refs.myLibraryBtn.classList.contains('current') && this.refs.watchedBtn.classList.contains('active')) {
+      this.library.onClickWatched();
+    }
   };
   //=========queue button func
   onQueueBtn = event => {
@@ -56,6 +64,9 @@ export default class ModalButtons {
     this.storageAPI.remove(this.storageAPI.keys.QUEUE, event.target.dataset.id);
     event.target.textContent = 'add to queue';
     event.target.dataset.action = 'add';
+    if (this.refs.myLibraryBtn.classList.contains('current') && this.refs.queueBtn.classList.contains('active')) {
+      this.library.onClickQueue();
+    }
   };
   // ============ adding keys to local storage watched
   addToWatched = event => {
