@@ -41,12 +41,15 @@ export default class FilmsPagination {
       //@alex need ask about it shit
       let pagData;
 
+      console.log(type);
+
       if (type === 'popular') {
         this.localService.setPaginationPage(event.page);
         pagData = await this.apiServices.fetchPopularFilms();
         this.renderMarkup.renderMarkup(pagData, { showVotes: false });
       } else if (type === 'query') {
         this.apiServices.query = query;
+        this.localService.setPaginationPage(event.page);
         pagData = await this.apiServices.fetchQueriedFilms();
         this.renderMarkup.renderMarkup(pagData, { showVotes: false });
       } else if (type === 'library') {

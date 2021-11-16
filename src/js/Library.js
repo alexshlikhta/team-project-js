@@ -5,6 +5,7 @@ import FilmsPagination from './FilmsPagination.js';
 
 const refs = {
   filmsList: document.querySelector('.js-films'),
+  paginationBox: document.getElementById('tui-pagination'),
 };
 
 export default class library {
@@ -25,10 +26,12 @@ export default class library {
 
     if (!localData || localData.length === 0) {
       console.log('no fils added yet');
+      refs.paginationBox.classList.add('hidden');
       refs.filmsList.innerHTML =
         '<li class="card__title"><p>Your watched list is empty! Please add some films!</p></li>';
     } else {
       const results = [];
+      refs.paginationBox.classList.remove('hidden');
 
       let counter = 0;
 
@@ -54,9 +57,11 @@ export default class library {
 
     if (!localData || localData.length === 0) {
       console.log('no fils added yet');
+      refs.paginationBox.classList.add('hidden');
       refs.filmsList.innerHTML =
         '<li class="card__title"><p>Your queue list is empty! Please add some films!</p></li>';
     } else {
+      refs.paginationBox.classList.remove('hidden');
       const results = [];
       for (let id of localData) {
         this.apiServices.movieId = id;

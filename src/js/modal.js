@@ -1,5 +1,4 @@
 import modalCard from '../templates/modalCard.hbs';
-import trailerTpl from '../templates/trailer.hbs';
 import * as basicLightbox from 'basiclightbox';
 import ApiServices from './ApiServices';
 // import { onModalButtons, clearListener } from './ModalButtons.js'
@@ -21,7 +20,6 @@ async function openLightbox(event) {
 
   dataApiServices.setMovieId(event.target.attributes.id.value);
   const dataFilmById = await dataApiServices.fetchFilmById();
-  console.log(dataFilmById);
 
   const markup = modalCard(dataFilmById);
   const modal = basicLightbox.create(markup);
