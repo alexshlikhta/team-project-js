@@ -6,6 +6,9 @@
 body.dark-theme {
   background-color: var(--color-grey-2);
   color: var(--color-grey);
+  &.modal__container {
+    background-color: var(--color-grey-1);
+  }
 }
 
 .toolbar {
@@ -22,7 +25,7 @@ body.dark-theme {
 
 .svg-switch {
   margin-right: 10px;
-  //   padding-top: 3px;
+  padding-top: 2px;
 }
 
 .theme-switch__icon {
@@ -117,4 +120,60 @@ footer.dark-theme,
 
 .dark-theme .films__name {
   color: var(--color-grey);
+}
+
+body {
+  &.dark-theme {
+    & .modal__container {
+      background-color: var(--color-grey-2);
+      & .modal__close-btn {
+        background-color: var(--color-grey-1);
+        &:hover,
+        &:focus {
+          background-color: var(--color-orange);
+        }
+      }
+      & .modal-button__btn {
+        background-color: var(--color-grey-1);
+        &:hover,
+        &:focus {
+          background-color: var(--color-orange);
+        }
+      }
+      & .card__info,
+      .card__title,
+      // .card__item,
+      .card__about,
+      .card__description,
+      .modal__button-trailer,
+      .modal-button__btn {
+        color: var(--color-gray);
+      }
+    }
+    & .modal-devs__overlay {
+      background-color: var(--color-grey-2);
+      & .modal-devs__close-btn {
+        background-color: var(--color-grey-1);
+        &:hover,
+        &:focus {
+          background-color: var(--color-orange);
+        }
+      }
+      & .team__title--main,
+      // .team__title,
+      .team__text {
+        color: var(--color-gray);
+      }
+      & .team__item {
+        color: var(--color-gray);
+      }
+      & .team__link {
+        background-color: var(--color-grey-2);
+        &:hover,
+        &:focus {
+          background-color: var(--color-grey);
+        }
+      }
+    }
+  }
 }

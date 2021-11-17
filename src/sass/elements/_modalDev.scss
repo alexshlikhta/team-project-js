@@ -10,13 +10,12 @@
 
   opacity: 1;
   transition: transform var (250ms cubic-bezier(0.4, 0, 0.2, 1));
-  // transition: opacity 0.4s ease;
 
-  &.is-hidden {
-    opacity: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
+  // &.is-hidden {
+  //   opacity: 0;
+  //   pointer-events: none;
+  //   overflow: hidden;
+  // }
 }
 
 .stop-scrolling {
@@ -25,16 +24,15 @@
 }
 
 .modal-devs__overlay {
-  // position: absolute;
   top: 50%;
   left: 50%;
 
   max-height: 100vh;
-  max-width: 860px;
+  max-width: 750px;
   padding: 10px 20px 20px;
 
   border-radius: 4px;
-  background-color: #ffffff;
+  background-color: var(--color-grey);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(40, 40, 43, 0.2);
 
@@ -46,47 +44,30 @@
 .is-hidden .modal-devs__overlay {
   transform: translate(-50%, -50%) scale(1.1);
 }
-
 .modal-devs__close-btn {
   position: absolute;
-  top: 10px;
   right: 10px;
-  padding-bottom: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 16px;
-  width: 50px;
+  top: 10px;
+  width: 30px;
   height: 30px;
-  background-color: var(--color-orange);
-  color: var(--color-grey-2);
-
+  padding-bottom: 3px;
+  margin: 0;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 300ms linear, transform 300ms ease-in-out;
+  background-image: url('../images/close.svg');
+  background-position: center;
+  background-repeat: no-repeat;
 
-  transition-duration: 100ms;
-  transition-timing-function: ease-in-out;
-  transition-delay: 100ms;
-
-  &:active {
-    outline: none;
-  }
   &:hover,
   &:focus {
     background-color: var(--color-orange);
-
-    color: #f5f4fa;
-    font-weight: 700;
-    transform: rotate(360deg);
-  }
-
-  @media screen and (max-width: 767px) {
-    width: 40px;
-    height: 20px;
-    font-size: 12px;
+    transform: rotate(180deg);
   }
 }
+
 .img__box {
   width: 140px;
   height: 150px;
@@ -143,12 +124,12 @@
 }
 
 .team__item {
-  // background-color: var(--color-grey-3);
-  background-color: white;
+  background-color: var(--color-grey-3);
+  // background-color: white;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
-  border: 1px solid rgba(255, 107, 1, 1);
+  border: 1px solid var(--color-grey-3);
   transition: transform ease-in-out 0.3s;
 
   @media screen and (max-width: 767px) {
@@ -195,7 +176,7 @@
   text-align: center;
   padding-bottom: 10px;
 
-  color: rgba(255, 107, 1, 1);
+  color: var(--color-grey);
 }
 
 .team__menu {
@@ -219,7 +200,7 @@
   align-items: center;
 
   border-radius: 50%;
-  border: 1px solid rgba(255, 107, 1, 1);
+  border: 1px solid var(--color-orange);
 
   background-color: var(--color-grey);
 
