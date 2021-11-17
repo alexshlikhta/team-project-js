@@ -16,7 +16,7 @@ export default class FilmsPagination {
   }
 
   async init(type, query) {
-    console.log(this.localService.getLocalTotalPages());
+    // console.log(this.localService.getLocalTotalPages());
     const paginationOptions = {
       totalItems: this.localService.getLocalTotalPages(),
       visiblePages: 5,
@@ -38,11 +38,10 @@ export default class FilmsPagination {
     this.pagination = new Pagination(ref.paginationBox, paginationOptions);
 
     this.pagination.on('afterMove', async event => {
-      window.scrollTo(0, 0);
-
-      let pagData;
-
       console.log(type);
+
+      window.scrollTo(0, 0);
+      let pagData;
 
       if (type === 'popular') {
         this.localService.setPaginationPage(event.page);
