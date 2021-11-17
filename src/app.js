@@ -54,7 +54,7 @@ async function onSearch(event) {
     init();
   } else {
     apiServices.query = refs.searchForm.elements.query.value;
-    refs.filmsList.innerHTML = '';
+    // refs.filmsList.innerHTML = '';
     const dataSearched = await apiServices.fetchQueriedFilms();
     renderMarkup.renderMarkup(dataSearched.results, { showVotes: false });
     localService.setPaginationType('query');
