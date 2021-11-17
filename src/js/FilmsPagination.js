@@ -1,7 +1,7 @@
 import Pagination from 'tui-pagination';
-import ApiServices from './ApiServices';
-import LocalService from './LocalStorage';
-import RenderMarkup from './RenderMarkup';
+import ApiServices from './ApiServices.js';
+import LocalService from './LocalStorage.js';
+import RenderMarkup from './RenderMarkup.js';
 
 const ref = {
   paginationBox: document.getElementById('tui-pagination'),

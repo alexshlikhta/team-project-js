@@ -1,6 +1,6 @@
 import axios from 'axios';
 import genresObj from '../db/genres.json';
-import LocalService from './LocalStorage';
+import LocalService from './LocalStorage.js';
 
 const API_KEY = 'api_key=afc2024e71269fd3f1e3cbd71f7c4df4';
 const BASE_URL = 'https://api.themoviedb.org/3/';

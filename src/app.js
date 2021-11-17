@@ -1,17 +1,17 @@
 import './sass/main.scss';
-import './js/header';
+import './js/header.js';
 import debounce from 'lodash.debounce';
-import './js/modal';
-import './js/modalDev';
+import './js/modal.js';
+import './js/modalDev.js';
 import './js/totopbutton.js';
-import './js/animationSvg';
-import './js/switch-theme';
+import './js/animationSvg.js';
+import './js/switch-theme.js';
 
-import RenderMarkup from './js/RenderMarkup';
+import RenderMarkup from './js/RenderMarkup.js';
 import FilmsPagination from './js/FilmsPagination.js';
-import ApiServices from './js/ApiServices';
-import Library from './js/Library';
-import LocalService from './js/LocalStorage';
+import ApiServices from './js/ApiServices.js';
+import Library from './js/Library.js';
+import LocalService from './js/LocalStorage.js';
 
 const refs = {
   searchForm: document.querySelector('#search-form'),

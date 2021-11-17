@@ -1,6 +1,6 @@
 import modalCard from '../templates/modalCard.hbs';
 import * as basicLightbox from 'basiclightbox';
-import ApiServices from './ApiServices';
+import ApiServices from './ApiServices.js';
 import ModalButtons from './ModalButtons.js';
 import trailerTpl from '../templates/trailer.hbs';
 

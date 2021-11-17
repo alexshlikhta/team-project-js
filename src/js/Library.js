@@ -1,6 +1,6 @@
 import ApiServices from './ApiServices.js';
-import LocalService from './LocalStorage';
-import RenderMarkup from './RenderMarkup';
+import LocalService from './LocalStorage.js';
+import RenderMarkup from './RenderMarkup.js';
 import FilmsPagination from './FilmsPagination.js';
 
 const refs = {
