@@ -40,7 +40,7 @@ export default class FilmsPagination {
     this.pagination.on('afterMove', async event => {
       console.log(type);
 
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       let pagData;
 
       if (type === 'popular') {

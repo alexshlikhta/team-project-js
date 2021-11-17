@@ -26,7 +26,7 @@ export default class RenderMarkup {
       }, this.delay);
       return loader.close();
     }
-
+    refs.paginationBox.classList.remove('hidden');
     refs.filmsList.innerHTML = cardTemplate(this.apiServices.transformData(results));
 
     if (showVotes) {
