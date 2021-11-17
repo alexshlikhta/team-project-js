@@ -26,6 +26,7 @@
     }
 
     @include desktop {
+      max-width: 30%;
       flex-basis: calc(100% / 3 - #{$card-set-gap});
     }
   }
@@ -41,13 +42,13 @@
   &__thumb {
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: 6px 3px 12px 5px rgba(0,0,0,0.71);
-    -webkit-box-shadow: 6px 3px 12px 5px rgba(0,0,0,0.71);
-    -moz-box-shadow: 6px 3px 12px 5px rgba(0,0,0,0.71);
+    box-shadow: 6px 3px 12px 5px rgba(0, 0, 0, 0.71);
+    -webkit-box-shadow: 6px 3px 12px 5px rgba(0, 0, 0, 0.71);
+    -moz-box-shadow: 6px 3px 12px 5px rgba(0, 0, 0, 0.71);
     transition: transform var(--animation);
-    &:hover{
-    transform: scale(1.04) translate( 4px,-5px);
-  }
+    &:hover {
+      transform: scale(1.04) translate(4px, -5px);
+    }
   }
 
   &__image {

@@ -26,19 +26,21 @@
 .modal-devs__overlay {
   top: 50%;
   left: 50%;
-
-  max-height: 100vh;
-  max-width: 750px;
+  max-height: 95vh;
+  max-width: 90vw;
   padding: 10px 20px 20px;
-
   border-radius: 4px;
   background-color: var(--color-grey);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(40, 40, 43, 0.2);
-
   overflow: auto;
   transform: translate(-50%, -50%) scale(1);
   transition: transform var(--animation);
+
+  @include tablet {
+    max-height: unset;
+    max-width: 750px;
+  }
 }
 
 .is-hidden .modal-devs__overlay {

@@ -20,13 +20,11 @@ export default class RenderMarkup {
 
     if (results.length === 0) {
       refs.errorMsg.classList.remove('visually-hidden');
-      refs.paginationBox.classList.add('hidden');
       setTimeout(() => {
         refs.errorMsg.classList.add('visually-hidden');
       }, this.delay);
       return loader.close();
     }
-    refs.paginationBox.classList.remove('hidden');
     refs.filmsList.innerHTML = cardTemplate(this.apiServices.transformData(results));
 
     if (showVotes) {

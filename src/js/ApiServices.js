@@ -25,7 +25,7 @@ export default class ApiServices {
           '&language=en-US&page=' +
           `&page=${this.localService.getPaginationPage()}`,
       );
-      this.localService.setLocalTotalPages(response.data.total_results);
+      this.localService.setLocalTotalCards(response.data.total_results);
       this.localService.setPaginationPage(response.data.page);
       return response.data;
     } catch (error) {
