@@ -1,13 +1,86 @@
-// body.light-theme {
-//   background-color: var(--color-grey);
-//   color: var(--color-grey-2);
-// }
-
 body.dark-theme {
   background-color: var(--color-grey-2);
   color: var(--color-grey);
   &.modal__container {
     background-color: var(--color-grey-1);
+  }
+
+  & .modal__container {
+    background-color: var(--color-grey-2);
+    & .modal__close-btn {
+      background-color: var(--color-grey-1);
+      &:hover,
+      &:focus {
+        background-color: var(--color-orange);
+      }
+    }
+    & .modal-button__btn {
+      background-color: var(--color-grey-1);
+      &:hover,
+      &:focus {
+        background-color: var(--color-orange);
+      }
+    }
+    & .card__info,
+    .card__title,
+    // .card__item,
+    .card__about,
+    .card__description,
+    .modal__button-trailer,
+    .modal-button__btn {
+      color: var(--color-gray);
+    }
+  }
+
+  & .modal-devs__overlay {
+    background-color: var(--color-grey-2);
+    & .modal-devs__close-btn {
+      background-color: var(--color-grey-1);
+      &:hover,
+      &:focus {
+        background-color: var(--color-orange);
+      }
+    }
+    & .team__title--main,
+    // .team__title,
+    .team__text {
+      color: var(--color-gray);
+    }
+    & .team__item {
+      color: var(--color-gray);
+    }
+    & .team__link {
+      background-color: var(--color-grey-2);
+      &:hover,
+      &:focus {
+        background-color: var(--color-grey);
+      }
+    }
+  }
+
+  .footer,
+  .footer__btn,
+  .footer__text {
+    background-color: var(--color-black);
+    color: var(--color-grey);
+  }
+  .footer__btn:hover {
+    color: var(--color-grey-3);
+  }
+
+  .films__name {
+    color: var(--color-grey);
+  }
+
+  & .tui-pagination {
+    & .tui-page-btn {
+      color: var(--color-white);
+    }
+
+    & .tui-ico-prev,
+    & .tui-ico-next {
+      background-color: var(--color-grey-1);
+    }
   }
 }
 
@@ -96,84 +169,4 @@ body.dark-theme {
 
 .theme-switch__toggle:checked ~ .theme-switch__marker {
   transform: translateX(35px);
-}
-
-// .theme-switch__toggle:focus + .theme-switch__track,
-// .theme-switch__toggle:active + .theme-switch__track {
-//   box-shadow: 0 0 0 2px var(--color-grey);
-// }
-
-// footer.light-theme {
-//   background-color: var(--color-grey);
-//   color: var(--color-black);
-// }
-
-footer.dark-theme,
-.footer__btn.dark-theme,
-.footer__text.dark-theme {
-  background-color: var(--color-black);
-  color: var(--color-grey);
-}
-.footer__btn.dark-theme:hover {
-  color: var(--color-grey-3);
-}
-
-.dark-theme .films__name {
-  color: var(--color-grey);
-}
-
-body {
-  &.dark-theme {
-    & .modal__container {
-      background-color: var(--color-grey-2);
-      & .modal__close-btn {
-        background-color: var(--color-grey-1);
-        &:hover,
-        &:focus {
-          background-color: var(--color-orange);
-        }
-      }
-      & .modal-button__btn {
-        background-color: var(--color-grey-1);
-        &:hover,
-        &:focus {
-          background-color: var(--color-orange);
-        }
-      }
-      & .card__info,
-      .card__title,
-      // .card__item,
-      .card__about,
-      .card__description,
-      .modal__button-trailer,
-      .modal-button__btn {
-        color: var(--color-gray);
-      }
-    }
-    & .modal-devs__overlay {
-      background-color: var(--color-grey-2);
-      & .modal-devs__close-btn {
-        background-color: var(--color-grey-1);
-        &:hover,
-        &:focus {
-          background-color: var(--color-orange);
-        }
-      }
-      & .team__title--main,
-      // .team__title,
-      .team__text {
-        color: var(--color-gray);
-      }
-      & .team__item {
-        color: var(--color-gray);
-      }
-      & .team__link {
-        background-color: var(--color-grey-2);
-        &:hover,
-        &:focus {
-          background-color: var(--color-grey);
-        }
-      }
-    }
-  }
 }

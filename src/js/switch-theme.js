@@ -11,6 +11,7 @@ const Theme = {
   LIGHT: 'light-theme',
   DARK: 'dark-theme',
 };
+
 const light = Theme.LIGHT;
 const dark = Theme.DARK;
 const saveLocalStorage = localStorage.getItem('Theme');
@@ -35,12 +36,9 @@ function onChangeTheme() {
     modalTheme.classList.add('dark-theme');
   } else {
     localStorage.setItem('Theme', light);
-    // body.classList.add('light-theme');
     body.classList.remove('dark-theme');
-    // footer.classList.add('light-theme');
     footer.classList.remove('dark-theme');
     footerText.classList.remove('dark-theme');
     footerBtn.classList.remove('dark-theme');
-    // modalTheme.classList.remove('dark-theme');
   }
 }
