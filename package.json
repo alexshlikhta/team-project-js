@@ -38,5 +38,5 @@
     "axios": "^0.24.0",
     "lazy-line-painter": "^1.9.6"
   },
-  "assetsPath": "src/images"
+  "assetsPath": "src/images/local"
 }
