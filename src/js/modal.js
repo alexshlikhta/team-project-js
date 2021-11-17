@@ -5,6 +5,7 @@ import ModalButtons from './ModalButtons.js';
 import trailerTpl from '../templates/trailer.hbs';
 
 const bodyRef = document.querySelector('.js-films');
+const body = document.body;
 
 const dataApiServices = new ApiServices();
 const modalbuttons = new ModalButtons();
@@ -22,9 +23,17 @@ async function openLightbox(event) {
   const dataFilmById = await dataApiServices.fetchFilmById();
 
   const markup = modalCard(dataFilmById);
-  const modal = basicLightbox.create(markup);
+  const modal = basicLightbox.create(markup, {
+    onShow: () => {
+      body.style.overflow = 'hidden';
+    },
+    onClose: () => {
+      body.style.overflow = 'inherit';
+    },
+  });
   modal.show();
   modalbuttons.onModalButtons();
+  body.style.overflow = 'hidden';
   // ============================open trailer======================================
   const dataTrailerById = await dataApiServices.fetchTrailerById();
   const trailerUrl = dataTrailerById.find(card => {
@@ -46,6 +55,7 @@ async function openLightbox(event) {
   const closeBtnRef = document.querySelector('[data-action="modal-close-icon"]');
   closeBtnRef.addEventListener('click', () => {
     modal.close();
+    body.style.overflow = 'scroll';
   });
 
   // =========close by clicking on ESCAPE==============//
@@ -54,6 +64,7 @@ async function openLightbox(event) {
   function closeModalHandler(event) {
     if (event.code === 'Escape') {
       modal.close();
+      body.style.overflow = 'scroll';
       window.removeEventListener('keydown', closeModalHandler);
       modalbuttons.clearListener();
     }
