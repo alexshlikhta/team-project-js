@@ -24,6 +24,7 @@ export default class RenderMarkup {
       setTimeout(() => {
         refs.errorMsg.classList.add('visually-hidden');
       }, this.delay);
+      return loader.close();
     }
 
     refs.filmsList.innerHTML = cardTemplate(this.apiServices.transformData(results));
@@ -45,6 +46,11 @@ export default class RenderMarkup {
     loader.show();
     const dataPopular = await this.apiServices.fetchPopularFilms();
     refs.filmsList.innerHTML = cardTemplate(this.apiServices.transformData(dataPopular.results));
+    // Hide votes in popular films list
+    for (const elem of refs.votesSpan) {
+      elem.classList.add('is-hidden');
+    }
+
     loader.close();
   };
 }
