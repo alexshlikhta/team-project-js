@@ -74,12 +74,24 @@ body.dark-theme {
 
   & .tui-pagination {
     & .tui-page-btn {
-      color: var(--color-white);
+      color: var(--color-grey);
+
+      &:hover {
+        background-color: var(--color-grey-1);
+      }
     }
 
     & .tui-ico-prev,
     & .tui-ico-next {
       background-color: var(--color-grey-1);
+
+      &:hover {
+        background-color: var(--color-grey);
+      }
+    }
+
+    & .tui-is-selected {
+      background-color: #9d7d69;
     }
   }
 }

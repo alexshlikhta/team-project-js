@@ -19,26 +19,14 @@ const saveLocalStorage = localStorage.getItem('Theme');
 if (saveLocalStorage === 'dark-theme') {
   check.checked = true;
   body.classList.add('dark-theme');
-  footer.classList.add('dark-theme');
-  footerText.classList.add('dark-theme');
-  footerBtn.classList.add('dark-theme');
-  // modalTheme.classList.add('dark-theme');
 }
 function onChangeTheme() {
   if (check.checked) {
     localStorage.setItem('Theme', dark);
     body.classList.add('dark-theme');
-    body.classList.remove('light-theme');
-    footer.classList.add('dark-theme');
-    footer.classList.remove('light-theme');
-    footerText.classList.add('dark-theme');
-    footerBtn.classList.add('dark-theme');
     modalTheme.classList.add('dark-theme');
   } else {
     localStorage.setItem('Theme', light);
     body.classList.remove('dark-theme');
-    footer.classList.remove('dark-theme');
-    footerText.classList.remove('dark-theme');
-    footerBtn.classList.remove('dark-theme');
   }
 }
