@@ -24,7 +24,6 @@ function onChangeTheme() {
   if (check.checked) {
     localStorage.setItem('Theme', dark);
     body.classList.add('dark-theme');
-    modalTheme.classList.add('dark-theme');
   } else {
     localStorage.setItem('Theme', light);
     body.classList.remove('dark-theme');
