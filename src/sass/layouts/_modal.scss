@@ -1,11 +1,6 @@
-.basicLightbox {
-  height: 100%;
-  overflow-y: auto;
-}
 .modal {
   &__container {
     position: relative;
-    top: 250px;
     background-color: #fff;
     padding: 50px 20px;
     border-radius: 5px;
@@ -13,11 +8,12 @@
 
     @include tablet {
       display: flex;
-      top: auto;
+      padding: 50px 30px;
     }
 
-    @include tablet {
-      padding: 50px 30px;
+    @include phone {
+      height: 90vh;
+      overflow-y: auto;
     }
   }
 
@@ -37,6 +33,10 @@
     background-image: url('../images/close.svg');
     background-position: center;
     background-repeat: no-repeat;
+
+    @include phone {
+      position: fixed;
+    }
 
     &:hover,
     &:focus {
