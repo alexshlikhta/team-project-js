@@ -5,20 +5,18 @@
     padding: 50px 20px;
     border-radius: 5px;
     box-shadow: inset 0 0 10px 5px var(--color-grey-1);
+    height: 90vh;
+    overflow: auto;
 
     @include tablet {
+      overflow: hidden;
+      height: unset;
       display: flex;
       padding: 50px 30px;
-    }
-
-    @include phone {
-      height: 90vh;
-      overflow-y: auto;
     }
   }
 
   &__close-btn {
-    position: absolute;
     left: 240px;
     top: 10px;
     width: 30px;
@@ -33,9 +31,10 @@
     background-image: url('../images/close.svg');
     background-position: center;
     background-repeat: no-repeat;
+    position: fixed;
 
-    @include phone {
-      position: fixed;
+    @include tablet {
+      position: absolute;
     }
 
     &:hover,
