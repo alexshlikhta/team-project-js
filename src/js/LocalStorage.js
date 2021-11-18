@@ -28,17 +28,17 @@ export default class LocalService {
   };
 
   clean() {
-    localStorage.setItem('total-pages', 1);
+    localStorage.setItem('total-cards', 1);
     localStorage.setItem('pagination-page', 1);
     localStorage.getItem('pagination-type', '');
   }
 
-  setLocalTotalPages(number) {
-    localStorage.setItem('total-pages', Math.round(number / 20));
+  setLocalTotalCards(number) {
+    localStorage.setItem('total-cards', number);
   }
 
-  getLocalTotalPages() {
-    return localStorage.getItem('total-pages');
+  getLocalTotalCards() {
+    return localStorage.getItem('total-cards');
   }
 
   setPaginationPage(number) {

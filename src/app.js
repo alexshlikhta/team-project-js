@@ -36,7 +36,7 @@ async function init() {
   localService.clean();
   renderMarkup.renderPopularFilms();
   localService.setPaginationType('popular');
-  localService.setLocalTotalPages(result.total_results);
+  localService.setLocalTotalCards(result.total_pages);
   filmsPagination.init('popular');
 }
 init();
@@ -56,11 +56,11 @@ async function onSearch(event) {
     init();
   } else {
     apiServices.query = refs.searchForm.elements.query.value;
-    // refs.filmsList.innerHTML = '';
+    localService.setPaginationPage(1);
     const dataSearched = await apiServices.fetchQueriedFilms();
     renderMarkup.renderMarkup(dataSearched.results, { showVotes: false });
     localService.setPaginationType('query');
-    localService.setLocalTotalPages(dataSearched.total_results);
+    localService.setLocalTotalCards(dataSearched.total_pages);
     filmsPagination.init('query', refs.searchForm.elements.query.value);
   }
 }

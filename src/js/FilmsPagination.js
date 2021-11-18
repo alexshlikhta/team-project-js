@@ -16,9 +16,9 @@ export default class FilmsPagination {
   }
 
   async init(type, query) {
-    // console.log(this.localService.getLocalTotalPages());
     const paginationOptions = {
-      totalItems: this.localService.getLocalTotalPages(),
+      totalItems: parseInt(this.localService.getLocalTotalCards()),
+      itemsPerPage: 20,
       visiblePages: 5,
       template: {
         currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
@@ -35,28 +35,30 @@ export default class FilmsPagination {
       },
     };
 
-    this.pagination = new Pagination(ref.paginationBox, paginationOptions);
+    if (paginationOptions.totalItems > 1) {
+      ref.paginationBox.classList.remove('hidden');
+      this.pagination = new Pagination(ref.paginationBox, paginationOptions);
 
-    this.pagination.on('afterMove', async event => {
-      console.log(type);
+      this.pagination.on('afterMove', async event => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        let pagData;
 
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      let pagData;
-
-      if (type === 'popular') {
-        this.localService.setPaginationPage(event.page);
-        pagData = await this.apiServices.fetchPopularFilms();
-        this.renderMarkup.renderMarkup(pagData, { showVotes: false });
-      } else if (type === 'query') {
-        this.apiServices.query = query;
-        this.localService.setPaginationPage(event.page);
-        pagData = await this.apiServices.fetchQueriedFilms();
-        this.renderMarkup.renderMarkup(pagData, { showVotes: false });
-      } else if (type === 'library') {
-        this.localService.setPaginationPage(event.page);
-      } else {
-        return;
-      }
-    });
+        if (type === 'popular') {
+          this.localService.setPaginationPage(event.page);
+          pagData = await this.apiServices.fetchPopularFilms();
+          this.renderMarkup.renderMarkup(pagData, { showVotes: false });
+        } else if (type === 'query') {
+          this.apiServices.query = query;
+          this.localService.setPaginationPage(event.page);
+          pagData = await this.apiServices.fetchQueriedFilms();
+          this.renderMarkup.renderMarkup(pagData, { showVotes: false });
+        } else if (type === 'library') {
+        } else {
+          return;
+        }
+      });
+    } else {
+      ref.paginationBox.classList.add('hidden');
+    }
   }
 }

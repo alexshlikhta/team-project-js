@@ -1,15 +1,20 @@
 .modal-devs__overlay {
-  position: relative;
-  top: 350px;
-  padding: 50px 20px;
-  border-radius: 5px;
+  top: 50%;
+  left: 50%;
+  max-height: 95vh;
+  max-width: 90vw;
+  padding: 10px 20px 20px;
+  border-radius: 4px;
   background-color: var(--color-grey);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(40, 40, 43, 0.2);
+  overflow: auto;
+  transform: translate(-50%, -50%) scale(1);
   transition: transform var(--animation);
 
   @include tablet {
-    top: auto;
+    max-height: unset;
+    max-width: 750px;
   }
 }
 
@@ -157,16 +162,12 @@
 .team__link {
   width: 35px;
   height: 35px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   border-radius: 50%;
   border: 1px solid var(--color-orange);
-
   background-color: var(--color-grey);
-
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
