@@ -1,6 +1,7 @@
 import ApiServices from './ApiServices.js';
 import cardTemplate from '../templates/film-card.hbs';
 import loader from './loader.js';
+import CardsLoader from './FilmCardsLoader.js';
 
 const refs = {
   filmsList: document.querySelector('.js-films'),
@@ -13,6 +14,7 @@ export default class RenderMarkup {
   constructor() {
     this.apiServices = new ApiServices();
     this.delay = 2000;
+    this.CardsLoader = new CardsLoader();
   }
 
   renderMarkup = (results, { showVotes }) => {
@@ -38,6 +40,7 @@ export default class RenderMarkup {
     }
 
     loader.close();
+    this.CardsLoader.loading();
   };
 
   renderPopularFilms = async () => {
@@ -48,7 +51,9 @@ export default class RenderMarkup {
     for (const elem of refs.votesSpan) {
       elem.classList.add('is-hidden');
     }
+    
 
     loader.close();
+    this.CardsLoader.loading();
   };
 }
