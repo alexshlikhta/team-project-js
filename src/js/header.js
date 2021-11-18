@@ -9,13 +9,13 @@ const containerLib = document.querySelector('.container-lib');
 const watchedBtn = document.getElementById('watched');
 const queueBtn = document.getElementById('queue');
 
-
 homeBtn.addEventListener('click', onClickHome);
 myLibraryBtn.addEventListener('click', onClickMyLibrary);
 
 watchedBtn.addEventListener('click', onClickWatched);
 queueBtn.addEventListener('click', onClickQueue);
 
+//==========search label holding fnc======//
 searchInput.addEventListener('blur', async () => {
   setTimeout(()=>{
     if(searchInput.value) {
@@ -42,7 +42,6 @@ function onClickMyLibrary() {
   searchForm.classList.add('visually-hidden');
   header.classList.add('library-page');
   containerLib.classList.remove('visually-hidden');
-  
 }
 
 function onClickWatched() {

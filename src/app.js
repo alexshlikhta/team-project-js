@@ -51,7 +51,6 @@ refs.searchButton.addEventListener('click', onSearch);
 
 async function onSearch(event) {
   event.preventDefault();
-
   if (refs.searchForm.elements.query.value === '') {
     init();
   } else {

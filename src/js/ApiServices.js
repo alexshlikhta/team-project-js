@@ -37,7 +37,6 @@ export default class ApiServices {
   async fetchQueriedFilms() {
     try {
       const response = await axios.get(
-        // need to verify request's url (url ok)
         BASE_URL +
           this.endPoint +
           API_KEY +
