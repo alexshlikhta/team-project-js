@@ -45,7 +45,9 @@ refs.homeBtn.addEventListener('click', init);
 refs.mylibrary.addEventListener('click', library.onClickMyLibrary);
 refs.watchedBtn.addEventListener('click', library.onClickWatched);
 refs.queueBtn.addEventListener('click', library.onClickQueue);
-refs.searchForm.addEventListener('input', debounce(onSearch, 500));
+refs.searchForm.addEventListener('input', debounce(onSearch, 900));
+refs.searchForm.addEventListener('submit', onSearch);
+refs.searchButton.addEventListener('click', onSearch);
 
 async function onSearch(event) {
   event.preventDefault();
