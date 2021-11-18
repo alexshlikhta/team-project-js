@@ -128,20 +128,13 @@
   padding-left: 3px;
   color: var(--color-white);
 
-  // &:hover,
-  // &:focus {
-  //   background-color: rgba(240, 233, 233, 0.2);
-  //   border-top: 0.5px solid var(--color-white);
-  //   border-radius: 12px;
-  // }
-
   &::placeholder {
     font-size: 14px;
     font-weight: 400;
     color: var(--color-white);
   }
 }
-
+//=================search form - styling================//
 .btn-search {
   position: relative;
   background-image: url('../images/search@2x.png');
@@ -168,6 +161,7 @@
     transform: translate(265px, -20px);
   }
 }
+
 .form-wrap{
   position: relative;
   margin-left: auto;
@@ -183,33 +177,38 @@
   background-color: var(--color-orange);
   transition: var(--animation);
 }
+
 .search:focus ~ .form-span{
   width: 100%;
   }
+
 .form-label{
   position: absolute;
   left: 0;
   width: 100%;
   top: -2px;
+  font-size: 14px;
   pointer-events: none;
   color: var(--color-white);
   transition: var(--animation);
+  
 }
+
 .popup-label{
   top: -25px;
-  font-size: 15px;
+  
 }
+
 .search:focus ~ .form-label,
 .search:active ~ .form-label {
   top: -25px;
-  font-size: 15px;
   color: var(--color-orange);
 }
 
 .search:focus ~ .btn-search {
   background-color: var(--color-orange);
     border-radius: 5px;
-    transform: translate(85px, -46px);
+    transform: translate(78px, -47px);
 }
 
 .library-page {
