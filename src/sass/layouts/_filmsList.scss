@@ -46,9 +46,10 @@
     -webkit-box-shadow: 6px 3px 12px 5px rgba(0, 0, 0, 0.71);
     -moz-box-shadow: 6px 3px 12px 5px rgba(0, 0, 0, 0.71);
     transition: transform var(--animation);
-    &:hover {
-      transform: scale(1.04) translate(4px, -5px);
-    }
+    &:hover,
+    &:focus{
+    transform: scale(1.04) translate( 4px,-5px);
+  }
   }
 
   &__image {
