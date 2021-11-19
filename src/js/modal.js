@@ -34,6 +34,7 @@ async function openLightbox(event) {
   modal.show();
   modalbuttons.onModalButtons();
   body.style.overflow = 'hidden';
+  
   // ============================open trailer======================================
   const dataTrailerById = await dataApiServices.fetchTrailerById();
   const buttonTrailerRef = document.querySelector('.js-button-trailer');

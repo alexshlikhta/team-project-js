@@ -9,7 +9,6 @@ export default class ModalButtons {
   }
 
   //=========declaring buttons handler function and listeners
-
   onModalButtons() {
     this.refs = {
       btnWatched: document.querySelector('.js-watched'),

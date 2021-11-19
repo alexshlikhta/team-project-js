@@ -1,18 +1,30 @@
 const homeBtn = document.querySelector('.menu__btn');
 const myLibraryBtn = document.getElementById('my-library');
 const searchForm = document.querySelector('.search-form');
+const searchInput = document.querySelector('.search');
+const searchLabel = document.querySelector('.form-label')
 const header = document.querySelector('.header');
 const libraryPage = document.querySelector('.library-page');
 const containerLib = document.querySelector('.container-lib');
 const watchedBtn = document.getElementById('watched');
 const queueBtn = document.getElementById('queue');
 
-
 homeBtn.addEventListener('click', onClickHome);
 myLibraryBtn.addEventListener('click', onClickMyLibrary);
 
 watchedBtn.addEventListener('click', onClickWatched);
 queueBtn.addEventListener('click', onClickQueue);
+
+//==========search label holding fnc======//
+searchInput.addEventListener('blur', async () => {
+  setTimeout(()=>{
+    if(searchInput.value) {
+      searchLabel.classList.add('popup-label')
+    } else {
+      searchLabel.classList.remove('popup-label')
+    }
+  },100)
+})
 
 function onClickHome() {
   homeBtn.classList.add('current');
@@ -30,7 +42,6 @@ function onClickMyLibrary() {
   searchForm.classList.add('visually-hidden');
   header.classList.add('library-page');
   containerLib.classList.remove('visually-hidden');
-  
 }
 
 function onClickWatched() {

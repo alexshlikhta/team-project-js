@@ -22,8 +22,6 @@ body.dark-theme {
       }
     }
     & .card__info,
-    .card__title,
-    // .card__item,
     .card__about,
     .card__description,
     .modal__button-trailer,
@@ -42,7 +40,6 @@ body.dark-theme {
       }
     }
     & .team__title--main,
-    // .team__title,
     .team__text {
       color: var(--color-gray);
     }

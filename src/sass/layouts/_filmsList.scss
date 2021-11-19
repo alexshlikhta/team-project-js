@@ -2,7 +2,7 @@
   margin: 20px 0 40px;
   padding: 0;
   list-style: none;
-
+  
   @include tablet {
     display: flex;
     flex-wrap: wrap;
@@ -19,6 +19,9 @@
     padding: 0;
     flex-basis: 280px;
 
+    transform:translateX(100vw) translateY(100vh) rotate(20deg);
+    transition:all 1s var(--animation); //ease-out (can be as option)
+
     @include tablet {
       flex-basis: calc(100% / 2 - #{$card-set-gap});
       margin-left: $card-set-gap;
@@ -29,6 +32,10 @@
       max-width: 30%;
       flex-basis: calc(100% / 3 - #{$card-set-gap});
     }
+  }
+  
+  .films__item.loaded {
+    transform:translateX(0) translateY(0) rotate(0);
   }
 
   &__item:not(:last-child) {
@@ -46,9 +53,10 @@
     -webkit-box-shadow: 6px 3px 12px 5px rgba(0, 0, 0, 0.71);
     -moz-box-shadow: 6px 3px 12px 5px rgba(0, 0, 0, 0.71);
     transition: transform var(--animation);
-    &:hover {
-      transform: scale(1.04) translate(4px, -5px);
-    }
+    &:hover,
+    &:focus{
+    transform: scale(1.04) translate( 4px,-5px);
+  }
   }
 
   &__image {
@@ -60,9 +68,6 @@
       width: 294px;
     }
 
-    // @include desktop {
-    //   width: 275px;
-    // }
   }
 
   &__content {
