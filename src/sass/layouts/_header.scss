@@ -196,7 +196,6 @@
 
 .popup-label{
   top: -25px;
-  
 }
 
 .search:focus ~ .form-label,
@@ -208,7 +207,7 @@
 .search:focus ~ .btn-search {
   background-color: var(--color-orange);
     border-radius: 5px;
-    transform: translate(78px, -47px);
+    transform: translate(82px, -47px);
 }
 
 .library-page {
