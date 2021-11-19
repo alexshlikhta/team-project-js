@@ -134,9 +134,21 @@
     margin-bottom: 20px;
     text-transform: uppercase;
     color: var(--color-black);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
 
     @include desktop {
       font-size: 30px;
+    }
+
+    &.custom {
+      width: 100%;
+      text-align: center;
+
+      @include tablet {
+        margin: 0 30px;
+      }
     }
   }
   &__table-link:not(:last-child) {

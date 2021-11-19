@@ -26,9 +26,8 @@ export default class library {
     const localData = this.localService.load('Watched');
 
     if (!localData || localData.length === 0) {
-      // console.log('no fils added yet');
       this.refs.filmsList.innerHTML =
-        '<li class="card__title"><p>Your watched list is empty! Please add some films!</p></li>';
+        '<li class="card__title custom"><p>Your watched list is empty! Please add some films!</p></li>';
     } else {
       const results = [];
       let counter = 0;
@@ -53,9 +52,8 @@ export default class library {
     const localData = this.localService.load('Queue');
 
     if (!localData || localData.length === 0) {
-      // console.log('no fils added yet');
       this.refs.filmsList.innerHTML =
-        '<li class="card__title"><p>Your queue list is empty! Please add some films!</p></li>';
+        '<li class="card__title custom"><p>Your queue list is empty! Please add some films!</p></li>';
     } else {
       const results = [];
       let counter = 0;

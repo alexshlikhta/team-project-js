@@ -44,7 +44,6 @@ export default class RenderMarkup {
     loader.show();
     const dataPopular = await this.apiServices.fetchPopularFilms();
     refs.filmsList.innerHTML = cardTemplate(this.apiServices.transformData(dataPopular.results));
-    // Hide votes in popular films list
     for (const elem of refs.votesSpan) {
       elem.classList.add('is-hidden');
     }

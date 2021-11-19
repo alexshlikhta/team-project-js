@@ -1,8 +1,6 @@
 @import './base/variables';
 @import './base/base';
 @import './base/container';
-@import './base/visually-hidden';
-// @import './base/header';
 
 // layouts
 @import './layouts/header';
@@ -12,11 +10,11 @@
 @import './layouts/switch-theme.scss';
 
 // components
-@import './elements/pagination';
 @import '../../node_modules/basiclightbox/dist/basicLightbox.min.css';
 @import './layouts/modal';
 @import '@pnotify/core/dist/BrightTheme.css';
 @import '@pnotify/core/dist/PNotify.css';
 @import 'tui-pagination/dist/tui-pagination.css';
+@import './elements/pagination';
 @import './elements/backToTopBtn';
 @import './elements/modalDev';
